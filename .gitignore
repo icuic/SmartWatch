@@ -74,3 +74,9 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+*.html
+*.pdf
+*.png
+*.crf
+*.htm
+*.d
