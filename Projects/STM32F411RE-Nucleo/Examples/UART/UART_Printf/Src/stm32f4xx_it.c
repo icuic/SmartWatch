@@ -155,6 +155,7 @@ void PendSV_Handler(void)
   */
 void SysTick_Handler(void)
 {
+    HAL_IncTick();
 }
 
 /******************************************************************************/
@@ -172,13 +173,24 @@ void SysTick_Handler(void)
 {
 }*/
 
-
 /**
-  * @}
-  */ 
-
-/**
-  * @}
+  * @brief  This function handles EXTI9_5 interrupt request.
+  * @param  None
+  * @retval None
   */
+void EXTI9_5_IRQHandler()
+{
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_8);
+}
+
+/**
+  * @brief  This function handles EXTI9_5 interrupt request.
+  * @param  None
+  * @retval None
+  */
+void EXTI15_10_IRQHandler()
+{
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
+}
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

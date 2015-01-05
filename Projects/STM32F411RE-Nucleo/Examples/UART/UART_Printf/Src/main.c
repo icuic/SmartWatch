@@ -50,10 +50,22 @@
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
+/* M25P FLASH SPI Interface pins  */  
+
+
+
+
 /* Private variables ---------------------------------------------------------*/
 /* UART handler declaration */
 UART_HandleTypeDef UartHandle;
+/* SPI handler declaration */
+SPI_HandleTypeDef SpiHandle;
 
+/* Buffer used for transmission */
+uint8_t aTxBuffer[] = "****SPI - Two Boards communication based on Polling **** SPI Message ******** SPI Message ******** SPI Message ****";
+
+/* Buffer used for reception */
+uint8_t aRxBuffer[BUFFERSIZE];
 /* Private function prototypes -----------------------------------------------*/
 #ifdef __GNUC__
   /* With GCC/RAISONANCE, small printf (option LD Linker->Libraries->Small printf
@@ -109,11 +121,69 @@ int main(void)
   }
   
   /* Output a message on Hyperterminal using printf function */
-  printf("\n\r UART Printf Example: retarget the C library printf function to the UART\n\r");
+  //printf("\n\rUART Printf Example: retarget the C library printf function to the UART\n\r");
+
+  afe4403_init();
+
+  /* Set the SPI parameters */
+  SpiHandle.Instance               = SPIx;
+  
+  SpiHandle.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_256;
+  SpiHandle.Init.Direction         = SPI_DIRECTION_2LINES;
+  SpiHandle.Init.CLKPhase          = SPI_PHASE_1EDGE;
+  SpiHandle.Init.CLKPolarity       = SPI_POLARITY_LOW;
+  SpiHandle.Init.CRCCalculation    = SPI_CRCCALCULATION_DISABLED;
+  SpiHandle.Init.CRCPolynomial     = 7;
+  SpiHandle.Init.DataSize          = SPI_DATASIZE_8BIT;
+  SpiHandle.Init.FirstBit          = SPI_FIRSTBIT_MSB;
+  SpiHandle.Init.NSS               = SPI_NSS_SOFT;
+  SpiHandle.Init.TIMode            = SPI_TIMODE_DISABLED;  
+  SpiHandle.Init.Mode              = SPI_MODE_MASTER;
+  
+  if(HAL_SPI_Init(&SpiHandle) != HAL_OK)
+  {
+    /* Initialization Error */
+    Error_Handler();
+  }
+
+  //HAL_SPI_TransmitReceive(&SpiHandle, aTxBuffer, aRxBuffer, BUFFERSIZE, 5000);
+  //printf("\r\n%s", aRxBuffer);
+
+  HAL_Delay(1000);
+
+  /* Soft reset */
+  printf("\r\n\r\nWrite0x000008 to register 0(Soft reset):");
+  
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
+  AFE4403_SPIx_Write(0, 0x8);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
+
+  HAL_Delay(1000);
+  
+  /* Write register 1 */
+  printf("\r\nWrite0x1111 to register 1:");
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
+  AFE4403_SPIx_Write(1, 0x1111);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
+  
+  /* Read enable */
+  printf("\r\n\r\nWrite0x000001 to register 0(Enable read function):");
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
+  AFE4403_SPIx_Write(0, 1);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
+
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
+  uint32_t tmp = AFE4403_SPIx_Read(1);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
+  
+  printf("\r\n\r\nThe data read from afe4403 is: 0x%06x", tmp);
 
   /* Infinite loop */ 
   while (1)
   {
+    HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+    
+    HAL_Delay(1000);
   }
 }
 
@@ -199,8 +269,6 @@ static void SystemClock_Config(void)
   */
 static void Error_Handler(void)
 {
-  /* Turn LED2 on */
-  BSP_LED_On(LED2);
   while(1)
   {
   }
@@ -233,5 +301,10 @@ void assert_failed(uint8_t* file, uint32_t line)
 /**
   * @}
   */ 
+
+
+
+
+
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

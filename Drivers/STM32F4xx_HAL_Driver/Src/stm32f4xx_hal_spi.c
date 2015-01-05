@@ -88,7 +88,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
-
+#include "stdio.h"
 /** @addtogroup STM32F4xx_HAL_Driver
   * @{
   */
@@ -404,6 +404,7 @@ HAL_StatusTypeDef HAL_SPI_Transmit(SPI_HandleTypeDef *hspi, uint8_t *pData, uint
         { 
           return HAL_TIMEOUT;
         }
+        printf("\r\n0x%.2x", *hspi->pTxBuffPtr);
         hspi->Instance->DR = (*hspi->pTxBuffPtr++);
         hspi->TxXferCount--;
       }
@@ -805,6 +806,7 @@ HAL_StatusTypeDef HAL_SPI_TransmitReceive(SPI_HandleTypeDef *hspi, uint8_t *pTxD
         }
 
         (*hspi->pRxBuffPtr) = hspi->Instance->DR;
+        printf("\r\nreceive 0x%2x", (*hspi->pRxBuffPtr));
         hspi->RxXferCount--;
       }
       else
@@ -816,7 +818,7 @@ HAL_StatusTypeDef HAL_SPI_TransmitReceive(SPI_HandleTypeDef *hspi, uint8_t *pTxD
           {
             return HAL_TIMEOUT;
           }
-
+          printf("\r\nsend 0x%.2x", (*hspi->pTxBuffPtr));
           hspi->Instance->DR = (*hspi->pTxBuffPtr++);
           hspi->TxXferCount--;
 
@@ -831,7 +833,7 @@ HAL_StatusTypeDef HAL_SPI_TransmitReceive(SPI_HandleTypeDef *hspi, uint8_t *pTxD
             {
               return HAL_TIMEOUT;
             }
-            
+            printf("\r\nreceive 0x%.2x", hspi->Instance->DR);
             (*hspi->pRxBuffPtr++) = hspi->Instance->DR;
             hspi->RxXferCount--;
         }
