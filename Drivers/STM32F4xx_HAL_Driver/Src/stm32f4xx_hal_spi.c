@@ -404,7 +404,9 @@ HAL_StatusTypeDef HAL_SPI_Transmit(SPI_HandleTypeDef *hspi, uint8_t *pData, uint
         { 
           return HAL_TIMEOUT;
         }
-        printf("\r\n0x%.2x", *hspi->pTxBuffPtr);
+#ifndef _NO_DEBUG_        
+        printf("0x%02x, ", *hspi->pTxBuffPtr);
+#endif
         hspi->Instance->DR = (*hspi->pTxBuffPtr++);
         hspi->TxXferCount--;
       }
@@ -806,7 +808,6 @@ HAL_StatusTypeDef HAL_SPI_TransmitReceive(SPI_HandleTypeDef *hspi, uint8_t *pTxD
         }
 
         (*hspi->pRxBuffPtr) = hspi->Instance->DR;
-        printf("\r\nreceive 0x%2x", (*hspi->pRxBuffPtr));
         hspi->RxXferCount--;
       }
       else
@@ -818,7 +819,9 @@ HAL_StatusTypeDef HAL_SPI_TransmitReceive(SPI_HandleTypeDef *hspi, uint8_t *pTxD
           {
             return HAL_TIMEOUT;
           }
-          printf("\r\nsend 0x%.2x", (*hspi->pTxBuffPtr));
+#ifndef _NO_DEBUG_          
+          printf("tx: 0x%02x -- ", (*hspi->pTxBuffPtr));
+#endif
           hspi->Instance->DR = (*hspi->pTxBuffPtr++);
           hspi->TxXferCount--;
 
@@ -833,7 +836,9 @@ HAL_StatusTypeDef HAL_SPI_TransmitReceive(SPI_HandleTypeDef *hspi, uint8_t *pTxD
             {
               return HAL_TIMEOUT;
             }
-            printf("\r\nreceive 0x%.2x", hspi->Instance->DR);
+#ifndef _NO_DEBUG_          
+            printf("rx: 0x%02x,   ", hspi->Instance->DR);
+#endif            
             (*hspi->pRxBuffPtr++) = hspi->Instance->DR;
             hspi->RxXferCount--;
         }

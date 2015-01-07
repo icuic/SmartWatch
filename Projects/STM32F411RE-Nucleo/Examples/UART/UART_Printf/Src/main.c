@@ -39,43 +39,13 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
-/** @addtogroup STM32F4xx_HAL_Examples
-  * @{
-  */
-
-/** @addtogroup UART_Printf
-  * @{
-  */ 
-
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
-/* M25P FLASH SPI Interface pins  */  
-
-
-
-
 /* Private variables ---------------------------------------------------------*/
-/* UART handler declaration */
-UART_HandleTypeDef UartHandle;
-/* SPI handler declaration */
-SPI_HandleTypeDef SpiHandle;
-
-/* Buffer used for transmission */
-uint8_t aTxBuffer[] = "****SPI - Two Boards communication based on Polling **** SPI Message ******** SPI Message ******** SPI Message ****";
-
-/* Buffer used for reception */
-uint8_t aRxBuffer[BUFFERSIZE];
 /* Private function prototypes -----------------------------------------------*/
-#ifdef __GNUC__
-  /* With GCC/RAISONANCE, small printf (option LD Linker->Libraries->Small printf
-     set to 'Yes') calls __io_putchar() */
-  #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
-#else
-  #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
-#endif /* __GNUC__ */
 static void SystemClock_Config(void);
-static void Error_Handler(void);
+void Error_Handler(void);
 
 /* Private functions ---------------------------------------------------------*/
 
@@ -96,106 +66,42 @@ int main(void)
   
   /* Configure the system clock to 100 MHz */
   SystemClock_Config();
-   
-  /*##-1- Configure the UART peripheral ######################################*/
-  /* Put the USART peripheral in the Asynchronous mode (UART Mode) */
-  /* UART1 configured as follow:
-      - Word Length = 8 Bits
-      - Stop Bit = One Stop bit
-      - Parity = ODD parity
-      - BaudRate = 9600 baud
-      - Hardware flow control disabled (RTS and CTS signals) */
-  UartHandle.Instance        = USARTx;
-  
-  UartHandle.Init.BaudRate   = 115200;
-  UartHandle.Init.WordLength = UART_WORDLENGTH_8B;
-  UartHandle.Init.StopBits   = UART_STOPBITS_1;
-  UartHandle.Init.Parity     = UART_PARITY_NONE;
-  UartHandle.Init.HwFlowCtl  = UART_HWCONTROL_NONE;
-  UartHandle.Init.Mode       = UART_MODE_TX_RX;
-  
-  if(HAL_UART_Init(&UartHandle) != HAL_OK)
-  {
-    /* Initialization Error */
-    Error_Handler(); 
-  }
-  
-  /* Output a message on Hyperterminal using printf function */
-  //printf("\n\rUART Printf Example: retarget the C library printf function to the UART\n\r");
 
-  afe4403_init();
+  /* AFE4403 bsp init */
+  AFE4403_Init();
 
-  /* Set the SPI parameters */
-  SpiHandle.Instance               = SPIx;
-  
-  SpiHandle.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128;
-  SpiHandle.Init.Direction         = SPI_DIRECTION_2LINES;
-  SpiHandle.Init.CLKPhase          = SPI_PHASE_1EDGE;
-  SpiHandle.Init.CLKPolarity       = SPI_POLARITY_LOW;
-  SpiHandle.Init.CRCCalculation    = SPI_CRCCALCULATION_DISABLED;
-  SpiHandle.Init.CRCPolynomial     = 7;
-  SpiHandle.Init.DataSize          = SPI_DATASIZE_8BIT;
-  SpiHandle.Init.FirstBit          = SPI_FIRSTBIT_MSB;
-  SpiHandle.Init.NSS               = SPI_NSS_SOFT;
-  SpiHandle.Init.TIMode            = SPI_TIMODE_DISABLED;  
-  SpiHandle.Init.Mode              = SPI_MODE_MASTER;
-  
-  if(HAL_SPI_Init(&SpiHandle) != HAL_OK)
-  {
-    /* Initialization Error */
-    Error_Handler();
-  }
 
-  //HAL_SPI_TransmitReceive(&SpiHandle, aTxBuffer, aRxBuffer, BUFFERSIZE, 5000);
-  //printf("\r\n%s", aRxBuffer);
+#ifndef _NO_DEBUG_
+  printf("SYSCLK = %d",     HAL_RCC_GetSysClockFreq());
+  printf("\r\nHCLK   = %d",     HAL_RCC_GetHCLKFreq());
+  printf("\r\nPCLK1  = %d",     HAL_RCC_GetPCLK1Freq());
+  printf("\r\nPCLK2  = %d", HAL_RCC_GetPCLK2Freq());
+#endif
 
-  HAL_Delay(1000);
+  /* AFE4403 write and read test */
 
-  printf("\r\nSYSCLK = %d", HAL_RCC_GetSysClockFreq());
-  printf("\r\nHCLK = %d", HAL_RCC_GetHCLKFreq());
-  printf("\r\nPCLK1 = %d", HAL_RCC_GetPCLK1Freq());
-  printf("\r\nPCLK2 = %d", HAL_RCC_GetPCLK2Freq());
-
-  /* Soft reset */
-  //printf("\r\n\r\nWrite0x000008 to register 0(Soft reset):");
-  //AFE4403_SPIx_Write(0, 0x8);
-
-  HAL_Delay(100);
-  
   /* Write register 1 */
-  printf("\r\nWrite0x1111 to register 1:");
-  AFE4403_SPIx_Write(1, 0x1111);
+  AFE4403_SPIx_Write(1, 0x1234);
   
   /* Read enable */
-  printf("\r\n\r\nWrite0x000001 to register 0(Enable read function):");
   AFE4403_SPIx_Write(0, 1);
 
-  uint32_t tmp = AFE4403_SPIx_Read(1);
-  
-  printf("\r\n\r\nThe data read from afe4403 is: 0x%06x", tmp);
+  /* Read register 1, the reture value should be 0x1234 */
+  AFE4403_SPIx_Read(1);
 
+  
   /* Infinite loop */ 
   while (1)
   {
+    /* Led toggle */
     HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-    
+
+    /* Delay 1000ms */
     HAL_Delay(1000);
   }
 }
 
-/**
-  * @brief  Retargets the C library printf function to the USART.
-  * @param  None
-  * @retval None
-  */
-PUTCHAR_PROTOTYPE
-{
-  /* Place your implementation of fputc here */
-  /* e.g. write a character to the EVAL_COM1 and Loop until the end of transmission */
-  HAL_UART_Transmit(&UartHandle, (uint8_t *)&ch, 1, 0xFFFF); 
 
-  return ch;
-}
 
 /**
   * @brief  System Clock Configuration
@@ -263,7 +169,7 @@ static void SystemClock_Config(void)
   * @param  None
   * @retval None
   */
-static void Error_Handler(void)
+void Error_Handler(void)
 {
   while(1)
   {

@@ -767,9 +767,9 @@ Command Line: --debug --xref --cpu=Cortex-M4.fp --apcs=interwork --depend=stm32
 f4xx-nucleo\startup_stm32f411xe.d -ostm32f4xx-nucleo\startup_stm32f411xe.o -IE:
 \GitHub_watch\SmartWatch\Projects\STM32F411RE-Nucleo\Examples\UART\UART_Printf\
 MDK-ARM\RTE -Id:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device
-\ST\STM32F4xx\Include -Id:\Keil_v5\ARM\CMSIS\Include -Id:\Keil_v5\ARM\PACK\Keil
-\STM32F4xx_DFP\2.3.0\Device\Include --predefine="__MICROLIB SETA 1" --predefine
-="STM32F411xE SETA 1" --list=startup_stm32f411xe.lst startup_stm32f411xe.s
+\ST\STM32F4xx\Include -Id:\Keil_v5\ARM\CMSIS\Include --predefine="__MICROLIB SE
+TA 1" --predefine="STM32F411xE SETA 1" --list=startup_stm32f411xe.lst startup_s
+tm32f411xe.s
 
 
 

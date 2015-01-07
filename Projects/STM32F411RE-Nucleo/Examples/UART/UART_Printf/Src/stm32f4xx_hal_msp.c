@@ -36,7 +36,7 @@
   */ 
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#include "afe4403_bsp.h"
 
 /** @addtogroup STM32F4xx_HAL_Examples
   * @{

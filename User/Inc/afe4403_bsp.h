@@ -1,6 +1,6 @@
 /** 
   ******************************************************************************
-  * @file    stm32f4xx_nucleo.h
+  * @file    afe4403_bsp.h
   * @author  MCD Application Team
   * @version V1.1.0
   * @date    19-June-2014
@@ -49,97 +49,53 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
-   
-/** @addtogroup BSP
-  * @{
-  */
-
-/** @addtogroup STM32F4XX_NUCLEO
-  * @{
-  */
-
-/** @addtogroup STM32F4XX_NUCLEO_LOW_LEVEL
-  * @{
-  */ 
-
-/** @defgroup STM32F4XX_NUCLEO_LOW_LEVEL_Exported_Types
-  * @{
-  */
-typedef enum 
-{
-  LED2 = 0
-}Led_TypeDef;
-
-typedef enum 
-{  
-  BUTTON_KEY = 0
-}Button_TypeDef;
-
-typedef enum 
-{  
-  BUTTON_MODE_GPIO = 0,
-  BUTTON_MODE_EXTI = 1
-}ButtonMode_TypeDef;
-
-typedef enum 
-{ 
-  JOY_NONE  = 0,
-  JOY_SEL   = 1,
-  JOY_DOWN  = 2,
-  JOY_LEFT  = 3,
-  JOY_RIGHT = 4,
-  JOY_UP    = 5
-}JOYState_TypeDef;
-
-/**
-  * @}
-  */ 
-
-/** @defgroup STM32F4XX_NUCLEO_LOW_LEVEL_Exported_Constants
-  * @{
-  */ 
-
-/** 
-  * @brief Define for STM32F4XX_NUCLEO board  
-  */ 
-#if !defined (USE_STM32F4XX_NUCLEO)
- #define USE_STM32F4XX_NUCLEO
-#endif
 
 
-/**
-  * @}
-  */ 
+ 
+/*############################### USART1 #######################################*/  
+  /* User can use this section to tailor USARTx/UARTx instance used and associated 
+     resources */
+  /* Definition for USARTx clock resources */
+#define USARTx                           USART1
+#define USARTx_CLK_ENABLE()              __USART1_CLK_ENABLE();
+#define USARTx_RX_GPIO_CLK_ENABLE()      __GPIOA_CLK_ENABLE()
+#define USARTx_TX_GPIO_CLK_ENABLE()      __GPIOA_CLK_ENABLE() 
   
-/** @addtogroup STM32F4XX_NUCLEO_LOW_LEVEL_BUTTON
-  * @{
-  */  
+#define USARTx_FORCE_RESET()             __USART1_FORCE_RESET()
+#define USARTx_RELEASE_RESET()           __USART1_RELEASE_RESET()
+  
+  /* Definition for USARTx Pins */
+#define USARTx_TX_PIN                    GPIO_PIN_9
+#define USARTx_TX_GPIO_PORT              GPIOA  
+#define USARTx_TX_AF                     GPIO_AF7_USART1
+#define USARTx_RX_PIN                    GPIO_PIN_10
+#define USARTx_RX_GPIO_PORT              GPIOA 
+#define USARTx_RX_AF                     GPIO_AF7_USART1
 
 
+/*############################### SPI2 #######################################*/
+/* User can use this section to tailor SPIx instance used and associated 
+   resources */
+/* Definition for SPIx clock resources */
+#define SPIx                             SPI2
+#define SPIx_CLK_ENABLE()                __SPI2_CLK_ENABLE()
+#define SPIx_SCK_GPIO_CLK_ENABLE()       __GPIOB_CLK_ENABLE()
+#define SPIx_MISO_GPIO_CLK_ENABLE()      __GPIOB_CLK_ENABLE() 
+#define SPIx_MOSI_GPIO_CLK_ENABLE()      __GPIOB_CLK_ENABLE() 
 
-/**
-  * @}
-  */ 
+#define SPIx_FORCE_RESET()               __SPI2_FORCE_RESET()
+#define SPIx_RELEASE_RESET()             __SPI2_RELEASE_RESET()
 
-/** @addtogroup STM32F4XX_NUCLEO_LOW_LEVEL_BUS
-  * @{
-  */
-/*############################### SPI1 #######################################*/
-#define NUCLEO_SPIx                                     SPI2
-#define NUCLEO_SPIx_CLK_ENABLE()                        __SPI2_CLK_ENABLE()
-
-#define NUCLEO_SPIx_SCK_AF                              GPIO_AF5_SPI2
-#define NUCLEO_SPIx_SCK_GPIO_PORT                       GPIOB
-#define NUCLEO_SPIx_SCK_PIN                             GPIO_PIN_13
-#define NUCLEO_SPIx_SCK_GPIO_CLK_ENABLE()               __GPIOB_CLK_ENABLE()
-#define NUCLEO_SPIx_SCK_GPIO_CLK_DISABLE()              __GPIOB_CLK_DISABLE()
-
-#define NUCLEO_SPIx_MISO_MOSI_AF                        GPIO_AF5_SPI2
-#define NUCLEO_SPIx_MISO_MOSI_GPIO_PORT                 GPIOB
-#define NUCLEO_SPIx_MISO_MOSI_GPIO_CLK_ENABLE()         __GPIOB_CLK_ENABLE()
-#define NUCLEO_SPIx_MISO_MOSI_GPIO_CLK_DISABLE()        __GPIOB_CLK_DISABLE()
-#define NUCLEO_SPIx_MISO_PIN                            GPIO_PIN_14
-#define NUCLEO_SPIx_MOSI_PIN                            GPIO_PIN_15
+/* Definition for SPIx Pins */
+#define SPIx_SCK_PIN                     GPIO_PIN_13
+#define SPIx_SCK_GPIO_PORT               GPIOB
+#define SPIx_SCK_AF                      GPIO_AF5_SPI2
+#define SPIx_MISO_PIN                    GPIO_PIN_14
+#define SPIx_MISO_GPIO_PORT              GPIOB
+#define SPIx_MISO_AF                     GPIO_AF5_SPI2
+#define SPIx_MOSI_PIN                    GPIO_PIN_15
+#define SPIx_MOSI_GPIO_PORT              GPIOB
+#define SPIx_MOSI_AF                     GPIO_AF5_SPI2
 /* Maximum Timeout values for flags waiting loops. These timeouts are not based
    on accurate values, they just guarantee that the application will not remain
    stuck if the SPI communication is corrupted.
@@ -148,47 +104,15 @@ typedef enum
 #define NUCLEO_SPIx_TIMEOUT_MAX                   1000
 
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/** @defgroup STM32F4XX_NUCLEO_LOW_LEVEL_Exported_Macros
-  * @{
-  */  
-/**
-  * @}
-  */ 
-
-/** @defgroup STM32F4XX_NUCLEO_LOW_LEVEL_Exported_Functions
-  * @{
-  */
-uint32_t         BSP_GetVersion(void);  
 
 
+uint32_t  BSP_GetVersion(void);  
+
+void AFE4403_Init(void);
 void AFE4403_SPIx_Write(uint8_t addr, uint32_t value);
 uint32_t AFE4403_SPIx_Read(uint8_t addr);
 
 
-  
-/**
-  * @}
-  */ 
-
-/**
-  * @}
-  */ 
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }
