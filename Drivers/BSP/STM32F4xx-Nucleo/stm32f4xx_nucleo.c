@@ -208,7 +208,12 @@ void AFE4403_SPIx_Write(uint8_t addr, uint32_t value)
 
   HAL_StatusTypeDef status = HAL_OK;
 
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
+  HAL_Delay(1);
+
   status = HAL_SPI_Transmit(&SpiHandle, (uint8_t *)&txData, 4, SpixTimeout);
+
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
     
   /* Check the communication status */
   if(status != HAL_OK)
@@ -230,9 +235,14 @@ uint32_t AFE4403_SPIx_Read(uint8_t addr)
   
   uint32_t readvalue = 0x88888888;
   uint32_t writevalue = addr;
+
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
+  HAL_Delay(1);
   
   status = HAL_SPI_TransmitReceive(&SpiHandle, (uint8_t*) &writevalue, (uint8_t*) &readvalue, 4, SpixTimeout);
-  
+
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
+
   /* Check the communication status */
   if(status != HAL_OK)
   {

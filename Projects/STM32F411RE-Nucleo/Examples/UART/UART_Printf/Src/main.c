@@ -128,7 +128,7 @@ int main(void)
   /* Set the SPI parameters */
   SpiHandle.Instance               = SPIx;
   
-  SpiHandle.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_256;
+  SpiHandle.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128;
   SpiHandle.Init.Direction         = SPI_DIRECTION_2LINES;
   SpiHandle.Init.CLKPhase          = SPI_PHASE_1EDGE;
   SpiHandle.Init.CLKPolarity       = SPI_POLARITY_LOW;
@@ -151,30 +151,26 @@ int main(void)
 
   HAL_Delay(1000);
 
-  /* Soft reset */
-  printf("\r\n\r\nWrite0x000008 to register 0(Soft reset):");
-  
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
-  AFE4403_SPIx_Write(0, 0x8);
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
+  printf("\r\nSYSCLK = %d", HAL_RCC_GetSysClockFreq());
+  printf("\r\nHCLK = %d", HAL_RCC_GetHCLKFreq());
+  printf("\r\nPCLK1 = %d", HAL_RCC_GetPCLK1Freq());
+  printf("\r\nPCLK2 = %d", HAL_RCC_GetPCLK2Freq());
 
-  HAL_Delay(1000);
+  /* Soft reset */
+  //printf("\r\n\r\nWrite0x000008 to register 0(Soft reset):");
+  //AFE4403_SPIx_Write(0, 0x8);
+
+  HAL_Delay(100);
   
   /* Write register 1 */
   printf("\r\nWrite0x1111 to register 1:");
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
   AFE4403_SPIx_Write(1, 0x1111);
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
   
   /* Read enable */
   printf("\r\n\r\nWrite0x000001 to register 0(Enable read function):");
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
   AFE4403_SPIx_Write(0, 1);
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
 
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
   uint32_t tmp = AFE4403_SPIx_Read(1);
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
   
   printf("\r\n\r\nThe data read from afe4403 is: 0x%06x", tmp);
 
