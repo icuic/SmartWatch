@@ -363,7 +363,7 @@
             <useXO>0</useXO>
             <VariousControls>
               <MiscControls>--C99</MiscControls>
-              <Define>USE_HAL_DRIVER,STM32F411xE,USE_STM32F4XX_NUCLEO,</Define>
+              <Define>USE_HAL_DRIVER,STM32F411xE,USE_STM32F4XX_NUCLEO,_SPI_POLLING_,__AFE4403__</Define>
               <Undefine></Undefine>
               <IncludePath>..\Inc;..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc;..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo;..\..\..\..\..\..\Drivers\CMSIS\Include;..\..\..\..\..\..\User\Inc</IncludePath>
             </VariousControls>
@@ -419,9 +419,9 @@
           <GroupName>Drivers/BSP/STM32F4xx-Nucleo</GroupName>
           <Files>
             <File>
-              <FileName>stm32f4xx_nucleo.c</FileName>
+              <FileName>afe4403_bsp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo\stm32f4xx_nucleo.c</FilePath>
+              <FilePath>..\..\..\..\..\..\User\Src\afe4403_bsp.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -532,11 +532,6 @@
               <FileName>stm32f4xx_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\stm32f4xx_it.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_afe4403.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\User\Src\bsp_afe4403.c</FilePath>
             </File>
             <File>
               <FileName>HAL_callback.c</FileName>

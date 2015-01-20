@@ -40,10 +40,16 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   if(__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_8))
   {
-    printf("\n\rADC_RDY interrupt!\n\r");
+    //printf("\n\rADC_RDY interrupt!\n\r");
   }
   else if(__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_15))
   {
-    printf("\n\rDIG_END interrupt!\n\r");
+    printf("\n\rDIAG_END interrupt!\n\r");
+
+    extern uint8_t f;
+    f = 1;
   }
+
+  
+  __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
 }

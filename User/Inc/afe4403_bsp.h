@@ -49,7 +49,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
-
+#include "afe4403_register.h"
 
  
 /*############################### USART1 #######################################*/  
@@ -104,6 +104,13 @@
 #define NUCLEO_SPIx_TIMEOUT_MAX                   1000
 
 
+/* SPI handler declaration */
+extern SPI_HandleTypeDef SpiHandle;
+#ifdef _SPI_DMA_
+extern DMA_HandleTypeDef hdma_spi2_rx;
+extern DMA_HandleTypeDef hdma_spi2_tx;
+#endif
+
 
 
 uint32_t  BSP_GetVersion(void);  
@@ -111,7 +118,8 @@ uint32_t  BSP_GetVersion(void);
 void AFE4403_Init(void);
 void AFE4403_SPIx_Write(uint8_t addr, uint32_t value);
 uint32_t AFE4403_SPIx_Read(uint8_t addr);
-
+void AFE4403_SPIx_Read_Disable(void);
+void AFE4403_SPIx_Read_Enable(void);
 
 
 #ifdef __cplusplus

@@ -66,10 +66,116 @@ uint32_t SpixTimeout = NUCLEO_SPIx_TIMEOUT_MAX; /*<! Value of Timeout when SPI c
 UART_HandleTypeDef UartHandle;
 /* SPI handler declaration */
 SPI_HandleTypeDef SpiHandle;
+#ifdef _SPI_DMA_
+DMA_HandleTypeDef hdma_spi2_rx;
+DMA_HandleTypeDef hdma_spi2_tx;
+
+uint32_t readvalue = 0xFFFFFFFF;
+uint32_t txData = 0;
+#endif
 
 
+
+unsigned long AFE44xx_Current_Register_Settings[36] = {
+  CONTROL0_VAL,           //Reg0:CONTROL0: CONTROL REGISTER 0
+  LED2STC_VAL,            //Reg1:REDSTARTCOUNT: SAMPLE RED START COUNT
+  LED2ENDC_VAL,           //Reg2:REDENDCOUNT: SAMPLE RED END COUNT
+  LED2LEDSTC_VAL,         //Reg3:REDLEDSTARTCOUNT: RED LED START COUNT
+  LED2LEDENDC_VAL,        //Reg4:REDLEDENDCOUNT: RED LED END COUNT
+  ALED2STC_VAL,           //Reg5:AMBREDSTARTCOUNT: SAMPLE AMBIENT RED START COUNT
+  ALED2ENDC_VAL,          //Reg6:AMBREDENDCOUNT: SAMPLE AMBIENT RED END COUNT
+  LED1STC_VAL,            //Reg7:IRSTARTCOUNT: SAMPLE IR START COUNT
+  LED1ENDC_VAL,           //Reg8:IRENDCOUNT: SAMPLE IR END COUNT
+  LED1LEDSTC_VAL,         //Reg9:IRLEDSTARTCOUNT: IR LED START COUNT
+  LED1LEDENDC_VAL,        //Reg10:IRLEDENDCOUNT: IR LED END COUNT
+  ALED1STC_VAL,           //Reg11:AMBIRSTARTCOUNT: SAMPLE AMBIENT IR START COUNT
+  ALED1ENDC_VAL,          //Reg12:AMBIRENDCOUNT: SAMPLE AMBIENT IR END COUNT
+  LED2CONVST_VAL,         //Reg13:REDCONVSTART: REDCONVST
+  LED2CONVEND_VAL,        //Reg14:REDCONVEND: RED CONVERT END COUNT
+  ALED2CONVST_VAL,        //Reg15:AMBREDCONVSTART: RED AMBIENT CONVERT START COUNT
+  ALED2CONVEND_VAL,       //Reg16:AMBREDCONVEND: RED AMBIENT CONVERT END COUNT
+  LED1CONVST_VAL,         //Reg17:IRCONVSTART: IR CONVERT START COUNT
+  LED1CONVEND_VAL,        //Reg18:IRCONVEND: IR CONVERT END COUNT
+  ALED1CONVST_VAL,        //Reg19:AMBIRCONVSTART: IR AMBIENT CONVERT START COUNT
+  ALED1CONVEND_VAL,       //Reg20:AMBIRCONVEND: IR AMBIENT CONVERT END COUNT
+  ADCRSTSTCT0_VAL,        //Reg21:ADCRESETSTCOUNT0: ADC RESET 0 START COUNT
+  ADCRSTENDCT0_VAL,       //Reg22:ADCRESETENDCOUNT0: ADC RESET 0 END COUNT
+  ADCRSTSTCT1_VAL,        //Reg23:ADCRESETSTCOUNT1: ADC RESET 1 START COUNT
+  ADCRSTENDCT1_VAL,       //Reg24:ADCRESETENDCOUNT1: ADC RESET 1 END COUNT
+  ADCRSTSTCT2_VAL,        //Reg25:ADCRESETENDCOUNT2: ADC RESET 2 START COUNT
+  ADCRSTENDCT2_VAL,       //Reg26:ADCRESETENDCOUNT2: ADC RESET 2 END COUNT
+  ADCRSTSTCT3_VAL,        //Reg27:ADCRESETENDCOUNT3: ADC RESET 3 START COUNT
+  ADCRSTENDCT3_VAL,       //Reg28:ADCRESETENDCOUNT3: ADC RESET 3 END COUNT
+  PRP,                    //Reg29:PRPCOUNT: PULSE REPETITION PERIOD COUNT
+  CONTROL1_VAL,           //Reg30:CONTROL1: CONTROL REGISTER 1 //timer enabled, averages=3, RED and IR LED pulse ON PD_ALM AND LED_ALM pins
+  0x00000,                //Reg31:?: ??          
+  (ENSEPGAIN + STAGE2EN_LED1 + STG2GAIN_LED1_0DB + CF_LED1_5P + RF_LED1_1M),                      //Reg32:TIAGAIN: TRANS IMPEDANCE AMPLIFIER GAIN SETTING REGISTER
+  (AMBDAC_0uA + FLTRCNRSEL_500HZ + STAGE2EN_LED2 + STG2GAIN_LED2_0DB + CF_LED2_5P + RF_LED2_1M),  //Reg33:TIA_AMB_GAIN: TRANS IMPEDANCE AAMPLIFIER AND AMBIENT CANELLATION STAGE GAIN
+  (LEDCNTRL_VAL),                                                                                 //Reg34:LEDCNTRL: LED CONTROL REGISTER
+#ifndef __AFE4403__
+  (TX_REF_1 + RST_CLK_ON_PD_ALM_PIN_DISABLE + ADC_BYP_DISABLE + TXBRGMOD_H_BRIDGE + DIGOUT_TRISTATE_DISABLE + XTAL_ENABLE + EN_FAST_DIAG + PDN_TX_OFF + PDN_RX_OFF + PDN_AFE_OFF)                 //Reg35:CONTROL2: CONTROL REGISTER 2 //bit 9
+#else
+    (TX_REF_1 + TXBRGMOD_H_BRIDGE + DIGOUT_TRISTATE_DISABLE + XTAL_ENABLE + EN_FAST_DIAG + PDN_TX_OFF + PDN_RX_OFF + PDN_AFE_OFF)                 //Reg35:CONTROL2: CONTROL REGISTER 2 //bit 9  
+#endif    
+};
+
+uint32_t config[52] = {
+  0,        // 0
+  6080,     // 1
+  7998,     // 2
+  6000,     // 3
+  7999,     // 4
+  80,       // 5
+  1998,     // 6
+  2080,     // 7
+  3998,     // 8
+  2000,     // 9
+  3999,     // 10
+  4080,     // 11
+  5998,     // 12
+  6,        // 13
+  1999,     // 14
+  2006,     // 15
+  3999,     // 16
+  4006,     // 17
+  5999,     // 18
+  6006,     // 19
+  7999,     // 20
+  0,        // 21
+  5,        // 22
+  2000,     // 23
+  2005,     // 24
+  4000,     // 25
+  4005,     // 26
+  6000,     // 27
+  6005,     // 28
+  7999,     // 29
+  0x101,    // 30 - Control1
+  0,        // 31 -not used
+  0,        // 32 - tiagain
+  2,        // 33 - tia-amb-gain
+  0x11414,  // 34 - ledcntrl
+  0,        // 35 - control2
+  0,        // 36 - not used
+  0,        // 37 - not used
+  0,        // 38 - not used
+  0,        // 39 - not used
+  0,        // 40 - not used
+  0,        // 41 - read only
+  0,        // 42 - read only
+  0,        // 43 - read only
+  0,        // 44 - read only
+  0,        // 45 - read only
+  0,        // 46 - read only
+  0,        // 47 - read only
+  0,        // 48 - read only
+  0,        // 49 - control3
+  0,        // 50
+  0,        // 51
+};
 
 extern void Error_Handler(void);
+void AFE4403_Reset(void);
 
 
 #ifdef __GNUC__
@@ -129,6 +235,14 @@ void UART_Init(void)
     /* Initialization Error */
     Error_Handler(); 
   }
+#if 0
+#ifndef _NO_DEBUG_
+    printf("SYSCLK = %d",     HAL_RCC_GetSysClockFreq());
+    printf("\r\nHCLK   = %d",     HAL_RCC_GetHCLKFreq());
+    printf("\r\nPCLK1  = %d",     HAL_RCC_GetPCLK1Freq());
+    printf("\r\nPCLK2  = %d", HAL_RCC_GetPCLK2Freq());
+#endif
+#endif
 }
 
 void SPI_Init(void)
@@ -156,6 +270,90 @@ void SPI_Init(void)
 
 }
 
+/**
+  * @brief  AFE4403_register_init.
+  * @param  None
+  * @retval None
+  */
+void AFE4403_register_init(void)
+{
+  /* AFE4403 reset */
+  AFE4403_Reset();
+
+
+  /* Register init */
+  /* Read disable */
+  AFE4403_SPIx_Read_Disable();
+
+  AFE4403_SPIx_Write(PRPCOUNT, PRP);
+  
+  AFE4403_SPIx_Write(LED2STC, LED2STC_VAL); 
+  AFE4403_SPIx_Read_Enable();
+  AFE4403_SPIx_Read(LED2STC);
+  AFE4403_SPIx_Read_Disable();
+
+  
+  AFE4403_SPIx_Write(LED2ENDC, LED2ENDC_VAL);
+  AFE4403_SPIx_Write(LED2LEDSTC, LED2LEDSTC_VAL);
+  AFE4403_SPIx_Write(LED2LEDENDC, LED2LEDENDC_VAL);
+  AFE4403_SPIx_Write(ALED2STC, ALED2STC_VAL);
+  AFE4403_SPIx_Write(ALED2ENDC, ALED2ENDC_VAL);
+  AFE4403_SPIx_Write(LED1STC, LED1STC_VAL);
+  AFE4403_SPIx_Write(LED1ENDC, LED1ENDC_VAL);
+  AFE4403_SPIx_Write(LED1LEDSTC, LED1LEDSTC_VAL);
+  AFE4403_SPIx_Write(LED1LEDENDC, LED1LEDENDC_VAL);
+  AFE4403_SPIx_Write(ALED1STC, ALED1STC_VAL);
+  AFE4403_SPIx_Write(ALED1ENDC, ALED1ENDC_VAL);
+  AFE4403_SPIx_Write(LED2CONVST, LED2CONVST_VAL);
+  AFE4403_SPIx_Write(LED2CONVEND, LED2CONVEND_VAL);
+  AFE4403_SPIx_Write(ALED2CONVST, ALED2CONVST_VAL);
+  AFE4403_SPIx_Write(ALED2CONVEND, ALED2CONVEND_VAL);
+  AFE4403_SPIx_Write(LED1CONVST, LED1CONVST_VAL);
+  AFE4403_SPIx_Write(LED1CONVEND, LED1CONVEND_VAL);
+  AFE4403_SPIx_Write(ALED1CONVST, ALED1CONVST_VAL);
+  AFE4403_SPIx_Write(ALED1CONVEND, ALED1CONVEND_VAL);
+  AFE4403_SPIx_Write(ADCRSTSTCT0, ADCRSTSTCT0_VAL);
+  AFE4403_SPIx_Write(ADCRSTENDCT0, ADCRSTENDCT0_VAL);
+  AFE4403_SPIx_Write(ADCRSTSTCT1, ADCRSTSTCT1_VAL);
+  AFE4403_SPIx_Write(ADCRSTENDCT1, ADCRSTENDCT1_VAL);
+  AFE4403_SPIx_Write(ADCRSTSTCT2, ADCRSTSTCT2_VAL);
+  AFE4403_SPIx_Write(ADCRSTENDCT2, ADCRSTENDCT2_VAL);
+  AFE4403_SPIx_Write(ADCRSTSTCT3, ADCRSTSTCT3_VAL);
+  AFE4403_SPIx_Write(ADCRSTENDCT3, ADCRSTENDCT3_VAL);
+
+  AFE4403_SPIx_Write(CONTROL0, AFE44xx_Current_Register_Settings[0]);            //0x00
+  //AFE4403_SPIx_Write(CONTROL2, AFE44xx_Current_Register_Settings[35]);           //0x23
+  //AFE4403_SPIx_Write(TIAGAIN, AFE44xx_Current_Register_Settings[32]);            //0x20
+  //AFE4403_SPIx_Write(TIA_AMB_GAIN, AFE44xx_Current_Register_Settings[33]);       //0x21
+  AFE4403_SPIx_Write(CONTROL2, 0);           //0x23
+  AFE4403_SPIx_Write(TIAGAIN, 0);            //0x20
+  AFE4403_SPIx_Write(TIA_AMB_GAIN, 2);       //0x21
+  AFE4403_SPIx_Write(LEDCNTRL, AFE44xx_Current_Register_Settings[34]);           //0x22
+  //AFE4403_SPIx_Write(CONTROL1, AFE44xx_Current_Register_Settings[30]);           //0x1E
+  AFE4403_SPIx_Write(CONTROL1, 0x101);           //0x1E
+
+#ifdef __AFE4403__
+  AFE4403_SPIx_Write(CONTROL3, 0);           //0x31
+  AFE4403_SPIx_Write(PDNCYCLESTC, 0);        //0x32
+  AFE4403_SPIx_Write(PDNCYCLEENDC, 0);       //0x33
+#endif
+
+  AFE4403_SPIx_Read_Enable();
+
+
+#ifndef _NO_DEBUG_
+  /* Self-checking */
+  if ( LED2STC_VAL == AFE4403_SPIx_Read(LED2STC))
+  {
+    printf("\n\rSelf-checking succeed!");
+  }
+  else
+  {
+    printf("\n\rSelf-checking failed!");
+  }
+#endif
+
+}
 
 /**
   * @brief  USART_init.
@@ -171,12 +369,14 @@ void AFE4403_GPIO_init(void)
   /*##-1- Enable GPIOA, GPIOB Clock (to be able to program the configuration registers) */
   __GPIOA_CLK_ENABLE();
   __GPIOB_CLK_ENABLE();
+
   
   /*##-2.1- Configure PA08 and PA15 IO as external interrupt with falling edge sensitivity ###*/  
   GPIO_InitStruct.Pin = GPIO_PIN_8 | GPIO_PIN_15;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct); 
+
 
   /*##-2.2- Configure PB0 and PB1 IO in output push-pull mode to control the AFE_/PDF and AFE_/RST pins in AFE4403 ###*/  
   GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1;
@@ -185,29 +385,125 @@ void AFE4403_GPIO_init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FAST;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
+
   /*##-3 Enable EXTI */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_8 | GPIO_PIN_15);
   
-  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 3, 0);
-  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 4, 0);
+  //HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
-  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 4, 0);
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 3, 0);
   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);  
+
 
   /* AFE4403 Register Initialization */
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_SET);
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
-  HAL_Delay(100);
+  //HAL_Delay(5);
 
   // LED
   GPIO_InitStruct.Pin = GPIO_PIN_5;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   GPIO_InitStruct.Speed = GPIO_SPEED_FAST;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  //HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+}
+
+#ifdef _SPI_DMA_
+/** 
+  * Enable DMA controller clock
+  */
+void DMA_Init(void) 
+{
+  /* DMA controller clock enable */
+  __DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  HAL_NVIC_SetPriority(DMA1_Stream3_IRQn, 1, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream3_IRQn);
+  HAL_NVIC_SetPriority(DMA1_Stream4_IRQn, 2, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream4_IRQn);
+
 }
 
 
+/**
+  * @brief  SPI Write a register.
+  * @param  addr:  register address
+  * @param  value: value to be written to register
+  * @retval None
+  */
+void AFE4403_SPIx_Write(uint8_t addr, uint32_t value)
+{
+#ifndef _NO_DEBUG_
+    printf("\r\nWrite register 0x%02x ( %02d ) with value 0x%06x (%6d)", addr, addr, value, value);
+#endif
+    txData = addr;
+    uint32_t tmp = value >> 16;
+    txData += tmp << 8;
+  
+    tmp = (value & 0x00FFFF) >> 8;
+    txData += tmp << 16;
+  
+    tmp = (value & 0x0000FF);
+    txData += tmp << 24;
+  
+    HAL_StatusTypeDef status = HAL_OK;
+  
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
+    HAL_Delay(1);
+  
+    status = HAL_SPI_Transmit_DMA(&SpiHandle, (uint8_t *)&txData, 4);
+
+    printf("\r\n [7]");
+
+        
+    /* Check the communication status */
+    if(status != HAL_OK)
+    {
+      printf("\r\nafe4403 write rror = %d", status);
+      /* Execute user timeout callback */
+      while(1);
+    }
+
+}
+
+/**
+  * @brief  SPI Read a register.
+  * @param  addr:  register address
+  * @retval Read data
+*/
+uint32_t AFE4403_SPIx_Read(uint8_t addr)
+{
+  HAL_StatusTypeDef status = HAL_OK;
+  
+  uint32_t writevalue = addr;
+
+#ifndef _NO_DEBUG_
+    printf("\r\nRead register 0x%02x ( %02d ),", addr, addr);
+#endif
+
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
+  HAL_Delay(1);
+
+  status = HAL_SPI_TransmitReceive_DMA(&SpiHandle, (uint8_t*) &writevalue, (uint8_t*) &readvalue, 4);
+
+
+
+
+  /* Check the communication status */
+  if(status != HAL_OK)
+  {
+    printf("\r\nafe4403 read error = %d", status);
+    /* Execute user timeout callback */
+    while(1);
+  }
+
+  return readvalue;
+}
+
+
+#endif
 
 /**
   * @brief  afe4403_init.
@@ -219,17 +515,29 @@ void AFE4403_Init(void)
   /* AFE4403 GPIO init*/
   AFE4403_GPIO_init();
 
+#ifdef _SPI_DMA_
+  /* DMA init */
+  DMA_Init();
+#endif
+
   /* STM32 UART init */
   UART_Init();
 
   /* STM32 SPI init*/
   SPI_Init();
 
-  /* Delay 1s */
-  HAL_Delay(1000);
+  /* Delay 5ms */
+  HAL_Delay(5);
   
   //__HAL_GPIO_EXTI_GENERATE_SWIT(GPIO_PIN_8);
 
+  /* AFE4403 register init */
+  AFE4403_register_init(); 
+
+  /* Enable AFE4403_DIAG_END interrupt */
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+
+  
 }
 
 
@@ -249,7 +557,7 @@ uint32_t BSP_GetVersion(void)
 /******************************************************************************
                             BUS OPERATIONS
 *******************************************************************************/
-
+#ifdef _SPI_POLLING_
 /**
   * @brief  SPI Write a register.
   * @param  addr:  register address
@@ -259,7 +567,7 @@ uint32_t BSP_GetVersion(void)
 void AFE4403_SPIx_Write(uint8_t addr, uint32_t value)
 {
 #ifndef _NO_DEBUG_
-  printf("\r\n\r\nWrite register 0x%02x ( %02d ) with value 0x%06x in this order:\r\ntx: ", addr, addr, value);
+  //printf("\r\nWrite register 0x%02x ( %02d ) with value 0x%06x (%6d) ", addr, addr, value, value);
 #endif
 
   uint32_t tmp = value >> 16;
@@ -274,20 +582,24 @@ void AFE4403_SPIx_Write(uint8_t addr, uint32_t value)
 
   HAL_StatusTypeDef status = HAL_OK;
 
+
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
-  HAL_Delay(1);
+
 
   status = HAL_SPI_Transmit(&SpiHandle, (uint8_t *)&txData, 4, SpixTimeout);
 
+
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
-    
+
+  
   /* Check the communication status */
   if(status != HAL_OK)
   {
-    printf("\r\nafe4403 write rror = %d", status);
+    printf("\r\nafe4403 write error = %d", status);
     /* Execute user timeout callback */
     while(1);
   }
+
 }
 
 /**
@@ -303,20 +615,24 @@ uint32_t AFE4403_SPIx_Read(uint8_t addr)
   uint32_t writevalue = addr;
 
 #ifndef _NO_DEBUG_
-    printf("\r\n\r\nRead register 0x%02x ( %02d ) in this order:\r\n", addr, addr);
+    //printf("\r\nRead register 0x%02x ( %02d ),", addr, addr);
 #endif
 
+
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
-  HAL_Delay(1);
+
 
   status = HAL_SPI_TransmitReceive(&SpiHandle, (uint8_t*) &writevalue, (uint8_t*) &readvalue, 4, SpixTimeout);
 
-  readvalue >>= 8;
+  readvalue = __REV(readvalue);
+  readvalue &= 0x00FFFFFF;
+  
 
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
 
+  
 #ifndef _NO_DEBUG_
-        printf("\r\nThe return value is 0x%06x\r\n", readvalue);
+  //printf(" The return value is 0x%06x (%6d)", readvalue, readvalue);
 #endif
 
   /* Check the communication status */
@@ -329,8 +645,37 @@ uint32_t AFE4403_SPIx_Read(uint8_t addr)
 
   return readvalue;
 }
+#endif
 
 
+/**
+  * @brief  Clear the SPI_READ register bit to 0.
+  * @param  None
+  * @retval None
+*/
+void AFE4403_SPIx_Read_Disable(void)
+{
+  AFE4403_SPIx_Write(CONTROL0, SPI_READ_DISABLE);
+  //HAL_Delay(5);
+}
+
+/**
+  * @brief  Set the SPI_READ register bit to 1.
+  * @param  None
+  * @retval None
+*/
+void AFE4403_SPIx_Read_Enable(void)
+{
+  AFE4403_SPIx_Write(CONTROL0, SPI_READ_ENABLE);
+  
+  //HAL_Delay(5);
+}
+
+void AFE4403_Reset(void)
+{
+  AFE4403_SPIx_Write(CONTROL0, SW_RST);
+  HAL_Delay(10);
+}
 /******************************************************************************
                             LINK OPERATIONS
 *******************************************************************************/

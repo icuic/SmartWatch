@@ -47,6 +47,7 @@
 static void SystemClock_Config(void);
 void Error_Handler(void);
 
+uint8_t f = 0;
 /* Private functions ---------------------------------------------------------*/
 
 /**
@@ -71,33 +72,44 @@ int main(void)
   AFE4403_Init();
 
 
-#ifndef _NO_DEBUG_
-  printf("SYSCLK = %d",     HAL_RCC_GetSysClockFreq());
-  printf("\r\nHCLK   = %d",     HAL_RCC_GetHCLKFreq());
-  printf("\r\nPCLK1  = %d",     HAL_RCC_GetPCLK1Freq());
-  printf("\r\nPCLK2  = %d", HAL_RCC_GetPCLK2Freq());
-#endif
-
-  /* AFE4403 write and read test */
-
-  /* Write register 1 */
-  AFE4403_SPIx_Write(1, 0x1234);
-  
-  /* Read enable */
-  AFE4403_SPIx_Write(0, 1);
-
-  /* Read register 1, the reture value should be 0x1234 */
-  AFE4403_SPIx_Read(1);
-
-  
   /* Infinite loop */ 
   while (1)
   {
     /* Led toggle */
-    HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+    //HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 
-    /* Delay 1000ms */
-    HAL_Delay(1000);
+    /* Delay 5000ms */
+    HAL_Delay(5000);
+
+
+    AFE4403_SPIx_Read_Disable();
+    AFE4403_SPIx_Write(CONTROL0, DIAG_EN);
+
+    if (f)
+    {
+      f = 0;
+      AFE4403_SPIx_Read_Enable();
+      uint32_t tmp = AFE4403_SPIx_Read(0x30);
+      printf("\n\rDIAG register = 0x%x", tmp);
+    }
+
+    
+#ifndef _NO_DEBUG_
+    //printf("\n\rSTM32 is running...");
+#if 0
+
+    for(uint8_t i = 0x29; i < 0x30; i++)
+    {
+      HAL_Delay(100);
+      AFE4403_SPIx_Read_Enable();
+      AFE4403_SPIx_Read(i);
+      //AFE4403_SPIx_Read_Disable();
+      printf("\r\n\r\n");
+
+    }
+
+#endif
+#endif
   }
 }
 
@@ -162,6 +174,7 @@ static void SystemClock_Config(void)
   {
     Error_Handler();
   }
+
 }
 
 /**
