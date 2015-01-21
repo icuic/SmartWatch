@@ -1,6 +1,5 @@
----- stm32f4xx_nucleo Matches (5 in 4 files) ----
-Main.h (e:\github_watch\smartwatch\projects\stm32f411re-nucleo\examples\uart\uart_printf\inc):#include "stm32f4xx_nucleo.h"
-Release_Notes.html (bsp\stm32f4xx-nucleo):              <li><span style="font-size: 10pt; font-family: Verdana;">stm32f4xx_nucleo.c/.h</span></li>
-Stm32f4xx_nucleo.c (bsp\stm32f4xx-nucleo):  * @file    stm32f4xx_nucleo.c
-Stm32f4xx_nucleo.c (bsp\stm32f4xx-nucleo):#include "stm32f4xx_nucleo.h"
-Stm32f4xx_nucleo.h (bsp\stm32f4xx-nucleo):  * @file    stm32f4xx_nucleo.h
+---- CONTROL3 Matches (4 in 3 files) ----
+Afe4403_bsp.c (e:\github_watch\smartwatch\user\src):  AFE4403_SPIx_Write(CONTROL3, 0);           //0x31
+Afe4403_register.h (e:\github_watch\smartwatch\user\inc):#define CONTROL3        0x31
+Main.c (e:\github_watch\smartwatch\projects\stm32f411re-nucleo\examples\uart\uart_printf\src):    AFE4403_SPIx_Write(CONTROL3, 0x80);
+Main.c (e:\github_watch\smartwatch\projects\stm32f411re-nucleo\examples\uart\uart_printf\src):    AFE4403_SPIx_Write(CONTROL3, 0x00);

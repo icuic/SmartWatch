@@ -529,8 +529,6 @@ void AFE4403_Init(void)
   /* Delay 5ms */
   HAL_Delay(5);
   
-  //__HAL_GPIO_EXTI_GENERATE_SWIT(GPIO_PIN_8);
-
   /* AFE4403 register init */
   AFE4403_register_init(); 
 
