@@ -83,7 +83,7 @@ int main(void)
     //__HAL_GPIO_EXTI_GENERATE_SWIT(GPIO_PIN_8);
     //__HAL_GPIO_EXTI_GENERATE_SWIT(GPIO_PIN_15);
 
-#if 0
+#if 1
     if (HAL_GetTick() % 1000 == 0)
     {
       AFE4403_SPIx_Read_Disable();
@@ -94,19 +94,21 @@ int main(void)
     if (f_diag)
     {
       f_diag = 0;
-      //AFE4403_SPIx_Read_Enable();
+      AFE4403_SPIx_Read_Enable();
       uint32_t tmp = AFE4403_SPIx_Read(0x30);
       printf("\n\rDIAG register = 0x%x", tmp);
     }
 #endif
 
-    AFE4403_SPIx_Read_Disable();
+#if 1
+    AFE4403_SPIx_Write(CONTROL0, DIAG_EN | 0);
     AFE4403_SPIx_Write(CONTROL3, TX3_MODE);
     HAL_Delay(5000);
 
     AFE4403_SPIx_Write(CONTROL3, 0x00);
     HAL_Delay(5000);
-    
+#endif
+
     if (f_adc_rdy)
     {
       f_adc_rdy= 0;
@@ -122,7 +124,7 @@ int main(void)
 
 
 #ifndef _NO_DEBUG_
-    //printf("\n\rSTM32 is running...");
+    printf("\n\rSTM32 is running...");
 #endif
   }
 }
