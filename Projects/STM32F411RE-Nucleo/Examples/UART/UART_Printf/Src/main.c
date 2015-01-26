@@ -46,6 +46,7 @@
 /* Private function prototypes -----------------------------------------------*/
 static void SystemClock_Config(void);
 void Error_Handler(void);
+extern void processData(void);
 
 uint8_t f_diag = 0;
 uint8_t f_adc_rdy = 0;
@@ -83,7 +84,7 @@ int main(void)
     //__HAL_GPIO_EXTI_GENERATE_SWIT(GPIO_PIN_8);
     //__HAL_GPIO_EXTI_GENERATE_SWIT(GPIO_PIN_15);
 
-#if 1
+#if 0
     if (HAL_GetTick() % 1000 == 0)
     {
       AFE4403_SPIx_Read_Disable();
@@ -100,7 +101,7 @@ int main(void)
     }
 #endif
 
-#if 1
+#if 0
     AFE4403_SPIx_Write(CONTROL0, DIAG_EN | 0);
     AFE4403_SPIx_Write(CONTROL3, TX3_MODE);
     HAL_Delay(5000);
@@ -111,20 +112,14 @@ int main(void)
 
     if (f_adc_rdy)
     {
+      processData();
       f_adc_rdy= 0;
-      //printf("\r\n");
-      //printf("\r\n%d", AFE4403_SPIx_Read(0x2a));
-      //printf("\r\nALED2VAL = 0x%x; ", AFE4403_SPIx_Read(0x2b));
-      //printf("\r\nLED1VAL  = 0x%x; ", AFE4403_SPIx_Read(0x2c));
-      //printf("\r\nALED1VAL = 0x%x; ", AFE4403_SPIx_Read(0x2d));
-      //printf("\r\nLED2-ALE = 0x%x; ", AFE4403_SPIx_Read(0x2e));
-      //printf("\r\nLED1-ALE = 0x%x; ", AFE4403_SPIx_Read(0x2f));
     }
 
 
 
 #ifndef _NO_DEBUG_
-    printf("\n\rSTM32 is running...");
+    //printf("\n\rSTM32 is running...");
 #endif
   }
 }

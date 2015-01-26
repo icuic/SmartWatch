@@ -277,6 +277,7 @@ void SPI_Init(void)
   */
 void AFE4403_register_init(void)
 {
+#if 0
   /* AFE4403 reset */
   AFE4403_Reset();
 
@@ -353,6 +354,83 @@ void AFE4403_register_init(void)
   }
 #endif
 
+  //AFE4403_SPIx_Read_Enable();
+  for(uint8_t i = 1; i< 51; i++)
+  {
+    printf("\r\nRegister %d = %d", i, AFE4403_SPIx_Read(i));
+  }
+#endif
+
+///////////////////// 500 HZ //////////////////////////////
+#if 1
+  /* Reset AFE4403 by hardware */
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
+  HAL_Delay(5);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
+  AFE4403_SPIx_Write(CONTROL0, SW_RST);
+  HAL_Delay(5);
+
+  /* Write enable */
+  AFE4403_SPIx_Read_Disable();
+
+  AFE4403_SPIx_Write(LED2STC,0x001770);
+  AFE4403_SPIx_Write(LED2ENDC,0x001DAF);
+  AFE4403_SPIx_Write(LED2LEDSTC,0x001770);
+  AFE4403_SPIx_Write(LED2LEDENDC,0x001DB0);
+  AFE4403_SPIx_Write(ALED2STC,0x000000);
+  AFE4403_SPIx_Write(ALED2ENDC,0x00063F);
+  AFE4403_SPIx_Write(LED1STC,0x0007D0);
+  AFE4403_SPIx_Write(LED1ENDC,0x000E0F);
+  AFE4403_SPIx_Write(LED1LEDSTC,0x0007D0);
+  AFE4403_SPIx_Write(LED1LEDENDC,0x000E10);
+  AFE4403_SPIx_Write(ALED1STC,0x000FA0);
+  AFE4403_SPIx_Write(ALED1ENDC,0x0015DF);
+  AFE4403_SPIx_Write(LED2CONVST,0x000002);
+  AFE4403_SPIx_Write(LED2CONVEND,0x0007CF);
+  AFE4403_SPIx_Write(ALED2CONVST,0x0007D2);
+  AFE4403_SPIx_Write(ALED2CONVEND,0x000F9F);
+  AFE4403_SPIx_Write(LED1CONVST,0x000FA2);
+  AFE4403_SPIx_Write(LED1CONVEND,0x00176F);
+  AFE4403_SPIx_Write(ALED1CONVST,0x001772);
+  AFE4403_SPIx_Write(ALED1CONVEND,0x001F3F);
+  AFE4403_SPIx_Write(ADCRSTSTCT0,0x000000);
+  AFE4403_SPIx_Write(ADCRSTENDCT0,0x000000);
+  AFE4403_SPIx_Write(ADCRSTSTCT1,0x0007D0);
+  AFE4403_SPIx_Write(ADCRSTENDCT1,0x0007D0);
+  AFE4403_SPIx_Write(ADCRSTSTCT2,0x000FA0);
+  AFE4403_SPIx_Write(ADCRSTENDCT2,0x000FA0);
+  AFE4403_SPIx_Write(ADCRSTSTCT3,0x001770);
+  AFE4403_SPIx_Write(ADCRSTENDCT3,0x001770);
+  
+  AFE4403_SPIx_Write(PRPCOUNT,0x001F3F);
+  AFE4403_SPIx_Write(CONTROL1,0x000107);
+  AFE4403_SPIx_Write(TIAGAIN,0x000000);
+  AFE4403_SPIx_Write(TIA_AMB_GAIN,0x000002);
+  AFE4403_SPIx_Write(LEDCNTRL,0x011414); //LED current = 5mA
+  AFE4403_SPIx_Write(CONTROL2,0x000000);
+  AFE4403_SPIx_Write(CONTROL0, 0);
+
+#ifdef __AFE4403__
+  AFE4403_SPIx_Write(CONTROL3, 0);           //0x31
+  AFE4403_SPIx_Write(PDNCYCLESTC, 0);        //0x32
+  AFE4403_SPIx_Write(PDNCYCLEENDC, 0);       //0x33
+#endif
+
+  AFE4403_SPIx_Read_Enable();
+
+#ifndef _NO_DEBUG_
+  /* Self-checking */
+  if ( 0x001770 == AFE4403_SPIx_Read(LED2STC))
+  {
+    printf("\n\rSelf-checking succeed!");
+  }
+  else
+  {
+    printf("\n\rSelf-checking failed!");
+  }
+#endif
+
+#endif
 }
 
 /**
@@ -583,9 +661,7 @@ void AFE4403_SPIx_Write(uint8_t addr, uint32_t value)
 
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
 
-
   status = HAL_SPI_Transmit(&SpiHandle, (uint8_t *)&txData, 4, SpixTimeout);
-
 
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
 
@@ -616,15 +692,12 @@ uint32_t AFE4403_SPIx_Read(uint8_t addr)
     //printf("\r\nRead register 0x%02x ( %02d ),", addr, addr);
 #endif
 
-
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
-
 
   status = HAL_SPI_TransmitReceive(&SpiHandle, (uint8_t*) &writevalue, (uint8_t*) &readvalue, 4, SpixTimeout);
 
   readvalue = __REV(readvalue);
   readvalue &= 0x00FFFFFF;
-  
 
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
 
@@ -674,6 +747,39 @@ void AFE4403_Reset(void)
   AFE4403_SPIx_Write(CONTROL0, SW_RST);
   HAL_Delay(10);
 }
+
+long collectIR(void)
+{
+  AFE4403_SPIx_Read_Enable();
+  return AFE4403_SPIx_Read(0x2c);
+}
+
+long collectRED(void)
+{
+  AFE4403_SPIx_Read_Enable();
+  return AFE4403_SPIx_Read(0x2a);
+}
+
+long collectIRMinusAMBIR(void)
+{
+  AFE4403_SPIx_Read_Enable();
+  return AFE4403_SPIx_Read(0x2f);
+}
+
+long collectAMBIR(void)
+{
+  AFE4403_SPIx_Read_Enable();
+  return AFE4403_SPIx_Read(0x2d);
+}
+
+
+long collectAMBRED(void)
+{
+  AFE4403_SPIx_Read_Enable();
+  return AFE4403_SPIx_Read(0x2b);
+}
+
+
 /******************************************************************************
                             LINK OPERATIONS
 *******************************************************************************/

@@ -538,6 +538,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\..\User\Src\HAL_callback.c</FilePath>
             </File>
+            <File>
+              <FileName>PulseOX_HRM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\User\Src\PulseOX_HRM.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
