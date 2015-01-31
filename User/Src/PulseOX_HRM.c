@@ -182,6 +182,7 @@ unsigned int calcPulseOx(long maxIR, long minIR, long maxRed, long minRed)
 }
 
 
+#define MX (1.2 / 2097152)
 
 /**
 * @brief Processes the collected Red and IR values
@@ -193,6 +194,18 @@ unsigned int calcPulseOx(long maxIR, long minIR, long maxRed, long minRed)
 void processData(void)
 {
      voltageCodeCounter++;
+     
+     //long irSample = collectIR();
+     //long ambirSample = collectAMBIR();
+     //long redSample = collectRED();
+     //long ambreadSample = collectAMBRED();
+     //long irminusarm = collectIRMinusAMBIR();
+
+    //printf("\r\n0x%8x, %9d", irSample, irSample);
+    //printf("\r\n%9d,%9d,%9d,%9d,%9d,%9d", irSample, ambirSample, redSample, ambreadSample, irminusarm, HAL_GetTick());
+    //printf("\r\n%d", HAL_GetTick());
+    //printf("\r\n%d,%d", irSample, HAL_GetTick());
+    //return;
     
     //Start calculating data after skipping 2 seconds
     if(voltageCodeCounter > 1000)
@@ -201,19 +214,14 @@ void processData(void)
        
        //Read Red and IR values from AFE4400
        long irSample = collectIR();
-       long ambirSample = collectAMBIR();
+       //long ambirSample = collectAMBIR();
        long redSample = collectRED();
-       long ambreadSample = collectAMBRED();
+       //long ambreadSample = collectAMBRED();
 
-       printf("\r\n");
-       printf("\r\n%d", irSample);
-       printf("\r\n%d", ambirSample);              
-       printf("\r\n%d", redSample);       
-       printf("\r\n%d", ambreadSample);
-
-       return;
        //Filter the IR value
        long filtIRSample = filter(irSample);
+       printf("\r\n%d,%d,%d", irSample, filtIRSample, HAL_GetTick());
+       return;
 #if 0       
        if(checkStreamStatus()) //Send data for graphing only in streaming mode
        {

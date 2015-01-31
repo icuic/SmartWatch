@@ -235,7 +235,7 @@ void UART_Init(void)
     /* Initialization Error */
     Error_Handler(); 
   }
-#if 0
+#if 1
 #ifndef _NO_DEBUG_
     printf("SYSCLK = %d",     HAL_RCC_GetSysClockFreq());
     printf("\r\nHCLK   = %d",     HAL_RCC_GetHCLKFreq());
@@ -250,7 +250,7 @@ void SPI_Init(void)
   /* Set the SPI parameters */
   SpiHandle.Instance               = SPIx;
   
-  SpiHandle.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128;
+  SpiHandle.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_32;
   SpiHandle.Init.Direction         = SPI_DIRECTION_2LINES;
   SpiHandle.Init.CLKPhase          = SPI_PHASE_1EDGE;
   SpiHandle.Init.CLKPolarity       = SPI_POLARITY_LOW;
@@ -373,40 +373,44 @@ void AFE4403_register_init(void)
   /* Write enable */
   AFE4403_SPIx_Read_Disable();
 
-  AFE4403_SPIx_Write(LED2STC,0x001770);
-  AFE4403_SPIx_Write(LED2ENDC,0x001DAF);
-  AFE4403_SPIx_Write(LED2LEDSTC,0x001770);
-  AFE4403_SPIx_Write(LED2LEDENDC,0x001DB0);
-  AFE4403_SPIx_Write(ALED2STC,0x000000);
-  AFE4403_SPIx_Write(ALED2ENDC,0x00063F);
-  AFE4403_SPIx_Write(LED1STC,0x0007D0);
-  AFE4403_SPIx_Write(LED1ENDC,0x000E0F);
-  AFE4403_SPIx_Write(LED1LEDSTC,0x0007D0);
-  AFE4403_SPIx_Write(LED1LEDENDC,0x000E10);
-  AFE4403_SPIx_Write(ALED1STC,0x000FA0);
-  AFE4403_SPIx_Write(ALED1ENDC,0x0015DF);
-  AFE4403_SPIx_Write(LED2CONVST,0x000002);
-  AFE4403_SPIx_Write(LED2CONVEND,0x0007CF);
-  AFE4403_SPIx_Write(ALED2CONVST,0x0007D2);
-  AFE4403_SPIx_Write(ALED2CONVEND,0x000F9F);
-  AFE4403_SPIx_Write(LED1CONVST,0x000FA2);
-  AFE4403_SPIx_Write(LED1CONVEND,0x00176F);
-  AFE4403_SPIx_Write(ALED1CONVST,0x001772);
-  AFE4403_SPIx_Write(ALED1CONVEND,0x001F3F);
-  AFE4403_SPIx_Write(ADCRSTSTCT0,0x000000);
-  AFE4403_SPIx_Write(ADCRSTENDCT0,0x000000);
-  AFE4403_SPIx_Write(ADCRSTSTCT1,0x0007D0);
-  AFE4403_SPIx_Write(ADCRSTENDCT1,0x0007D0);
-  AFE4403_SPIx_Write(ADCRSTSTCT2,0x000FA0);
-  AFE4403_SPIx_Write(ADCRSTENDCT2,0x000FA0);
-  AFE4403_SPIx_Write(ADCRSTSTCT3,0x001770);
-  AFE4403_SPIx_Write(ADCRSTENDCT3,0x001770);
+  AFE4403_SPIx_Write(LED2STC,6080);           // Start of sample LED2 pulse
+  AFE4403_SPIx_Write(LED2ENDC,7998);          // End of sample LED2 pulse
+  AFE4403_SPIx_Write(LED2LEDSTC,6000);        // Start of LED2 pulse
+  AFE4403_SPIx_Write(LED2LEDENDC,7999);       // End of LED2 pulse
+  AFE4403_SPIx_Write(ALED2STC,80);            // Start of sample LED2 ambient pulse
+  AFE4403_SPIx_Write(ALED2ENDC,1998);         // End of sample LED2 ambient pulse
   
-  AFE4403_SPIx_Write(PRPCOUNT,0x001F3F);
-  AFE4403_SPIx_Write(CONTROL1,0x000107);
-  AFE4403_SPIx_Write(TIAGAIN,0x000000);
-  AFE4403_SPIx_Write(TIA_AMB_GAIN,0x000002);
-  AFE4403_SPIx_Write(LEDCNTRL,0x011414); //LED current = 5mA
+  AFE4403_SPIx_Write(LED1STC,2080);           // Start of sample LED1 pulse
+  AFE4403_SPIx_Write(LED1ENDC,3998);          // End of sample LED1 pulse
+  AFE4403_SPIx_Write(LED1LEDSTC,2000);        // Start of LED1 pulse
+  AFE4403_SPIx_Write(LED1LEDENDC,3999);       // End of LED1 pulse
+  AFE4403_SPIx_Write(ALED1STC,4080);          // Start of sample LED1 ambient pulse
+  AFE4403_SPIx_Write(ALED1ENDC,5998);         // End of sample LED1 ambient pulse
+  
+  AFE4403_SPIx_Write(LED2CONVST,6);           // Start of convert LED2 pulse
+  AFE4403_SPIx_Write(LED2CONVEND,1999);       // End of convert LED2 pulse
+  AFE4403_SPIx_Write(ALED2CONVST,2006);       // Start of convert LED2 ambient pulse
+  AFE4403_SPIx_Write(ALED2CONVEND,3999);      // End of convert LED2 ambient pulse
+  AFE4403_SPIx_Write(LED1CONVST,4006);        // Start of convert LED1 pulse
+  AFE4403_SPIx_Write(LED1CONVEND,5999);       // End of convert LED1 pulse
+  AFE4403_SPIx_Write(ALED1CONVST,6006);       // Start of convert LED1 ambient pulse
+  AFE4403_SPIx_Write(ALED1CONVEND,7999);      // End of convert LED1 ambient pulse
+  
+  AFE4403_SPIx_Write(ADCRSTSTCT0,0);          // Start of first ADC conversion reset pulse
+  AFE4403_SPIx_Write(ADCRSTENDCT0,5);         // End of first ADC conversion reset pulse
+  AFE4403_SPIx_Write(ADCRSTSTCT1,2000);       // Start of second ADC conversion reset pulse
+  AFE4403_SPIx_Write(ADCRSTENDCT1,2005);      // End of second ADC conversion reset pulse
+  AFE4403_SPIx_Write(ADCRSTSTCT2,4000);       // Start of third ADC conversion reset pulse
+  AFE4403_SPIx_Write(ADCRSTENDCT2,4005);      // End of third ADC conversion reset pulse
+  AFE4403_SPIx_Write(ADCRSTSTCT3,6000);       // Start of fourth ADC conversion reset pulse
+  AFE4403_SPIx_Write(ADCRSTENDCT3,6005);      // End of fourth ADC conversion reset pulse
+  
+  AFE4403_SPIx_Write(PRPCOUNT,7999);          // End of pulse repetition period
+  
+  AFE4403_SPIx_Write(CONTROL1,0x000101);      // Timer Enable, Average two ADC samples
+  AFE4403_SPIx_Write(TIAGAIN,     0x000000);  //
+  AFE4403_SPIx_Write(TIA_AMB_GAIN,0x000002);  // 5pF, 100k
+  AFE4403_SPIx_Write(LEDCNTRL,0x011414);      //LED current = 20/256*25 = 1.9mA
   AFE4403_SPIx_Write(CONTROL2,0x000000);
   AFE4403_SPIx_Write(CONTROL0, 0);
 
@@ -420,7 +424,7 @@ void AFE4403_register_init(void)
 
 #ifndef _NO_DEBUG_
   /* Self-checking */
-  if ( 0x001770 == AFE4403_SPIx_Read(LED2STC))
+  if ( 6080 == AFE4403_SPIx_Read(LED2STC))
   {
     printf("\n\rSelf-checking succeed!");
   }
@@ -750,33 +754,139 @@ void AFE4403_Reset(void)
 
 long collectIR(void)
 {
-  AFE4403_SPIx_Read_Enable();
-  return AFE4403_SPIx_Read(0x2c);
+  //AFE4403_SPIx_Read_Enable();
+  //return AFE4403_SPIx_Read(0x2c);
+#if 1
+  long tmp = AFE4403_SPIx_Read(0x2c);
+
+  uint32_t number = tmp & 0x001FFFFF;
+  uint32_t flag = tmp &   0x00200000;
+  long ret;
+
+  if(flag)
+  {
+    number -= 1;
+    number = ~number;
+    number &= 0x001FFFFF;
+    ret = -1 * number;
+  }
+  else
+  {
+    ret = number;
+  }
+  
+  return ret;
+#endif
 }
 
 long collectRED(void)
 {
-  AFE4403_SPIx_Read_Enable();
-  return AFE4403_SPIx_Read(0x2a);
+  //AFE4403_SPIx_Read_Enable();
+  //return AFE4403_SPIx_Read(0x2a);
+
+  long tmp = AFE4403_SPIx_Read(0x2a);
+
+  uint32_t number = tmp & 0x001FFFFF;
+  uint32_t flag = tmp &   0x00200000;
+  long ret;
+
+  if(flag)
+  {
+    number -= 1;
+    number = ~number;
+    number &= 0x001FFFFF;
+    ret = -1 * number;
+  }
+  else
+  {
+    ret = number;
+  }
+  
+  return ret;
+
+
 }
 
 long collectIRMinusAMBIR(void)
 {
-  AFE4403_SPIx_Read_Enable();
-  return AFE4403_SPIx_Read(0x2f);
+  //AFE4403_SPIx_Read_Enable();
+  //return AFE4403_SPIx_Read(0x2f);
+
+  long tmp = AFE4403_SPIx_Read(0x2f);
+
+  uint32_t number = tmp & 0x001FFFFF;
+  uint32_t flag = tmp &   0x00200000;
+  long ret;
+
+  if(flag)
+  {
+    number -= 1;
+    number = ~number;
+    number &= 0x001FFFFF;
+    ret = -1 * number;
+  }
+  else
+  {
+    ret = number;
+  }
+  
+  return ret;
+
 }
 
 long collectAMBIR(void)
 {
-  AFE4403_SPIx_Read_Enable();
-  return AFE4403_SPIx_Read(0x2d);
+  //AFE4403_SPIx_Read_Enable();
+  //return AFE4403_SPIx_Read(0x2d);
+
+  long tmp = AFE4403_SPIx_Read(0x2d);
+
+  uint32_t number = tmp & 0x001FFFFF;
+  uint32_t flag = tmp &   0x00200000;
+  long ret;
+
+  if(flag)
+  {
+    number -= 1;
+    number = ~number;
+    number &= 0x001FFFFF;
+    ret = -1 * number;
+  }
+  else
+  {
+    ret = number;
+  }
+  
+  return ret;
+
 }
 
 
 long collectAMBRED(void)
 {
-  AFE4403_SPIx_Read_Enable();
-  return AFE4403_SPIx_Read(0x2b);
+  //AFE4403_SPIx_Read_Enable();
+  //return AFE4403_SPIx_Read(0x2b);
+
+  long tmp = AFE4403_SPIx_Read(0x2b);
+
+  uint32_t number = tmp & 0x001FFFFF;
+  uint32_t flag = tmp &   0x00200000;
+  long ret;
+
+  if(flag)
+  {
+    number -= 1;
+    number = ~number;
+    number &= 0x001FFFFF;
+    ret = -1 * number;
+  }
+  else
+  {
+    ret = number;
+  }
+  
+  return ret;
+
 }
 
 

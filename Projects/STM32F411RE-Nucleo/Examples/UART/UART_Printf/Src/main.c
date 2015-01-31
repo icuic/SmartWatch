@@ -74,6 +74,7 @@ int main(void)
   /* AFE4403 bsp init */
   AFE4403_Init();
 
+  AFE4403_SPIx_Write(CONTROL0, DIAG_EN | SPI_READ);
 
   /* Infinite loop */ 
   while (1)
@@ -85,21 +86,22 @@ int main(void)
     //__HAL_GPIO_EXTI_GENERATE_SWIT(GPIO_PIN_15);
 
 #if 0
-    if (HAL_GetTick() % 1000 == 0)
+    if (HAL_GetTick() % 5000 == 0)
     {
       AFE4403_SPIx_Read_Disable();
       AFE4403_SPIx_Write(CONTROL0, DIAG_EN | SPI_READ);
     }
 
+#endif
 
     if (f_diag)
     {
       f_diag = 0;
-      AFE4403_SPIx_Read_Enable();
+      //AFE4403_SPIx_Read_Enable();
       uint32_t tmp = AFE4403_SPIx_Read(0x30);
       printf("\n\rDIAG register = 0x%x", tmp);
     }
-#endif
+
 
 #if 0
     AFE4403_SPIx_Write(CONTROL0, DIAG_EN | 0);
@@ -160,6 +162,7 @@ static void SystemClock_Config(void)
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
   
   /* Enable HSI Oscillator and activate PLL with HSI as source */
+  /* Enable HSI Oscillator and activate PLL with HSE as source */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = 0x10;
