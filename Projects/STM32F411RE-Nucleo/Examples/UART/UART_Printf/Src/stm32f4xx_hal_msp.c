@@ -169,41 +169,6 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef *hspi)
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
 
-#ifdef _SPI_DMA_
-  /* Peripheral DMA init*/
-
-  hdma_spi2_rx.Instance = DMA1_Stream3;
-  hdma_spi2_rx.Init.Channel = DMA_CHANNEL_0;
-  hdma_spi2_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
-  hdma_spi2_rx.Init.PeriphInc = DMA_PINC_DISABLE;
-  hdma_spi2_rx.Init.MemInc = DMA_MINC_ENABLE;
-  hdma_spi2_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
-  hdma_spi2_rx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
-  hdma_spi2_rx.Init.Mode = DMA_NORMAL;
-  hdma_spi2_rx.Init.Priority = DMA_PRIORITY_LOW;
-  hdma_spi2_rx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
-  HAL_DMA_Init(&hdma_spi2_rx);
-
-  __HAL_LINKDMA(hspi,hdmarx,hdma_spi2_rx);
-
-  hdma_spi2_tx.Instance = DMA1_Stream4;
-  hdma_spi2_tx.Init.Channel = DMA_CHANNEL_0;
-  hdma_spi2_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
-  hdma_spi2_tx.Init.PeriphInc = DMA_PINC_DISABLE;
-  hdma_spi2_tx.Init.MemInc = DMA_MINC_ENABLE;
-  hdma_spi2_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
-  hdma_spi2_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
-  hdma_spi2_tx.Init.Mode = DMA_NORMAL;
-  hdma_spi2_tx.Init.Priority = DMA_PRIORITY_LOW;
-  hdma_spi2_tx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
-  HAL_DMA_Init(&hdma_spi2_tx);
-
-  __HAL_LINKDMA(hspi,hdmatx,hdma_spi2_tx);
-
-/* System interrupt init*/
-  HAL_NVIC_SetPriority(SPI2_IRQn, 3, 0);
-  HAL_NVIC_EnableIRQ(SPI2_IRQn);
-#endif  
 }
 
 /**
@@ -229,65 +194,6 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef *hspi)
   HAL_GPIO_DeInit(SPIx_MOSI_GPIO_PORT, SPIx_MOSI_PIN);
 }
 
-#ifdef _SPI_DMA_
-/**
-  * @brief Tx Transfer completed callbacks
-  * @param  hspi: pointer to a SPI_HandleTypeDef structure that contains
-  *                the configuration information for SPI module.
-  * @retval None
-  */
-void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
-{
-  printf("\r\n [4]");
-  /* Set NSS pin */
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
-
-#ifndef _NO_DEBUG_
-    printf("\r\nSPI DMA transfer complete!");
-#endif
-}
-
-/**
-  * @brief Tx and Rx Transfer completed callbacks
-  * @param  hspi: pointer to a SPI_HandleTypeDef structure that contains
-  *                the configuration information for SPI module.
-  * @retval None
-  */
-void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi)
-{
-  extern uint32_t readvalue;
-
-  readvalue = __REV(readvalue);
-  readvalue &= 0x00FFFFFF;
-  
-  /* Set NSS pin */
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
-
-#ifndef _NO_DEBUG_
-    printf("\r\nSPI DMA transfer and receive complete!");
-    printf(" The return value is 0x%06x", readvalue);
-
-
-#endif
-}
-
-
-
-/**
-  * @brief SPI error callbacks
-  * @param  hspi: pointer to a SPI_HandleTypeDef structure that contains
-  *                the configuration information for SPI module.
-  * @retval None
-  */
- void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi)
-{
-#ifndef _NO_DEBUG_
-      printf("\r\nSPI error!");
-#endif
-
-}
-
-#endif
 
 /**
   * @}

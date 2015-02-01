@@ -1,4 +1,8 @@
----- GAIN Matches (3 in 2 files) ----
-Afe4403_bsp.c (e:\github_watch\smartwatch\user\src):  (ENSEPGAIN + STAGE2EN_LED1 + STG2GAIN_LED1_0DB + CF_LED1_5P + RF_LED1_1M),                      //Reg32:TIAGAIN: TRANS IMPEDANCE AMPLIFIER GAIN SETTING REGISTER
-Afe4403_bsp.c (e:\github_watch\smartwatch\user\src):  (AMBDAC_0uA + FLTRCNRSEL_500HZ + STAGE2EN_LED2 + STG2GAIN_LED2_0DB + CF_LED2_5P + RF_LED2_1M),  //Reg33:TIA_AMB_GAIN: TRANS IMPEDANCE AAMPLIFIER AND AMBIENT CANELLATION STAGE GAIN
-PulseOx_HRM.h (e:\github_watch\smartwatch\user\inc):#define GAIN            2.659066659e+05
+---- _SPI_DMA_ Matches (7 in 4 files) ----
+Afe4403_bsp.c (e:\github_watch\smartwatch\user\src):#ifdef _SPI_DMA_
+Afe4403_bsp.c (e:\github_watch\smartwatch\user\src):#ifdef _SPI_DMA_
+Afe4403_bsp.c (e:\github_watch\smartwatch\user\src):#ifdef _SPI_DMA_
+Afe4403_bsp.h (e:\github_watch\smartwatch\user\inc):#ifdef _SPI_DMA_
+Stm32f4xx_hal_msp.c (e:\github_watch\smartwatch\projects\stm32f411re-nucleo\examples\uart\uart_printf\src):#ifdef _SPI_DMA_
+Stm32f4xx_hal_msp.c (e:\github_watch\smartwatch\projects\stm32f411re-nucleo\examples\uart\uart_printf\src):#ifdef _SPI_DMA_
+Stm32f4xx_it.c (e:\github_watch\smartwatch\projects\stm32f411re-nucleo\examples\uart\uart_printf\src):#ifdef _SPI_DMA_

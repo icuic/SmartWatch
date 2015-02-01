@@ -106,10 +106,6 @@
 
 /* SPI handler declaration */
 extern SPI_HandleTypeDef SpiHandle;
-#ifdef _SPI_DMA_
-extern DMA_HandleTypeDef hdma_spi2_rx;
-extern DMA_HandleTypeDef hdma_spi2_tx;
-#endif
 
 
 

@@ -230,32 +230,29 @@
 #define TXBRGMOD_H_BRIDGE               (0x000000ul)        //Tx bridge mode
 #define TXBRGMOD_PUSH_PULL              (0x000800ul)        //Tx bridge mode
 
-#ifndef __AFE4403__
 #define ADC_BYP_DISABLE                 (0x000000ul)        //ADC bypass mode enable
 #define ADC_BYP_ENABLE                  (0x008000ul)        //ADC bypass mode enable
 
 #define RST_CLK_ON_PD_ALM_PIN_DISABLE   (0x000000ul)        //RST CLK on PD_ALM pin disable
 #define RST_CLK_ON_PD_ALM_PIN_ENABLE    (0x010000ul)        //RST CLK on PD_ALM pin enable
-#endif
+
 
 #define TX_REF_0                        (0x000000ul)        //Tx reference voltage - 0.75V
 #define TX_REF_1                        (0x020000ul)        //Tx reference voltage - 0.5V
 #define TX_REF_2                        (0x040000ul)        //Tx reference voltage - 1.0V
 #define TX_REF_3                        (0x060000ul)        //Tx reference voltage - 0.75V
 
-#ifdef __AFE4403__
 #define DYNAMIC1                        (0x000008ul)            // Dynamic1
 #define DYNAMIC2                        (0x000010ul)            // Dynamic2
 #define DYNAMIC3                        (0x004000ul)            // Dynamic3
 #define DYNAMIC4                        (0x100000ul)            // Dynamic4
-#endif
+
 
 
 #define ALARM           0x29
 #define    ALARM_VAL                    (0x000000ul)
 #define    ALMPINCLKEN                  (0x000080ul)        //Alarm pin clock enable (Enables CLKALMPIN)
 
-#ifdef __AFE4403__
 #define CONTROL3        0x31
 #define         CLK_DIV_0               (0x000000ul)            // Div by 2
 #define         CLK_DIV_2               (0x000002ul)            // Div by 4
@@ -270,7 +267,7 @@
 
 #define PDNCYCLESTC             0x32
 #define PDNCYCLEENDC            0x33
-#endif
+
 
 
 

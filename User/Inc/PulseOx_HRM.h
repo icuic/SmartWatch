@@ -49,7 +49,7 @@
 #define poles           6
 #define GAIN            2.659066659e+05
 #define sampleRate      500
-#define windowTime      3
+#define windowTime      
 #define STAGES          3
 
 const int TRUNC_BITS = 25;

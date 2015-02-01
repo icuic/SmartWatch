@@ -220,8 +220,8 @@ void processData(void)
 
        //Filter the IR value
        long filtIRSample = filter(irSample);
-       printf("\r\n%d,%d,%d", irSample, filtIRSample, HAL_GetTick());
-       return;
+       //printf("\r\n%d,%d,%d", irSample, filtIRSample, HAL_GetTick());
+       //return;
 #if 0       
        if(checkStreamStatus()) //Send data for graphing only in streaming mode
        {
