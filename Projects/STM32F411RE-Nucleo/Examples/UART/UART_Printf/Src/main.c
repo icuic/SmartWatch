@@ -82,17 +82,16 @@ int main(void)
     if (f_diag)
     {
       f_diag = 0;
-      //AFE4403_SPIx_Read_Enable();
-      uint32_t tmp = AFE4403_SPIx_Read(0x30);
 #ifndef _NO_DEBUG_      
-      printf("\n\rDIAG register = 0x%x", tmp);
+      printf("\r\nDIAG register = 0x%x", AFE4403_SPIx_Read(0x30));
 #endif
     }
 
 
     if (f_adc_rdy)
     {
-      processData();
+      processData();  
+      
       f_adc_rdy= 0;
     }
 

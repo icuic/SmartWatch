@@ -1,42 +1,13 @@
 Dependencies for Project 'Project', Target 'STM32F4xx-Nucleo': (DO NOT MODIFY !)
 F (..\readme.txt)(0x00000000)()
-F (..\..\..\..\..\..\User\Src\afe4403_bsp.c)(0x54D36203)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\Drivers\CMSIS\Include -I..\..\..\..\..\..\User\Inc --C99-I E:\GitHub_watch\SmartWatch\Projects\STM32F411RE-Nucleo\Examples\UART\UART_Printf\MDK-ARM\RTE-I d:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I d:\Keil_v5\ARM\CMSIS\Include-DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\afe4403_bsp.o --omf_browse stm32f4xx-nucleo\afe4403_bsp.crf --depend stm32f4xx-nucleo\afe4403_bsp.d)
-I (..\..\..\..\..\..\User\Inc\afe4403_bsp.h)(0x54CE387D)
-I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
-I (..\Inc\stm32f4xx_hal_conf.h)(0x54CE3BEC)
-I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x53ABF4BE)
-I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x53ABF4BE)
+F (..\Src\system_stm32f4xx.c)(0x53AC266E)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\User\Inc --C99-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include-DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\system_stm32f4xx.o --omf_browse stm32f4xx-nucleo\system_stm32f4xx.crf --depend stm32f4xx-nucleo\system_stm32f4xx.d)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4.h)(0x53ABF4A2)
-I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54199D7A)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4_simd.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
-I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x53ABF4BE)
-I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x53ABF4C0)
-I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio_ex.h)(0x53ABF4BF)
-I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma.h)(0x53ABF4BE)
-I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma_ex.h)(0x53ABF4C0)
-I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_cortex.h)(0x53ABF4BE)
-I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash.h)(0x53ABF4BF)
-I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h)(0x53ABF4BE)
-I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ramfunc.h)(0x53ABF4BE)
-I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h)(0x53ABF4BE)
-I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x53ABF4BE)
-I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53ABF4BE)
-I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
-I (..\..\..\..\..\..\User\Inc\afe4403_register.h)(0x54CE37ED)
-I (d:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54199D7C)
-F (..\Src\system_stm32f4xx.c)(0x53AC266E)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\Drivers\CMSIS\Include -I..\..\..\..\..\..\User\Inc --C99-I E:\GitHub_watch\SmartWatch\Projects\STM32F411RE-Nucleo\Examples\UART\UART_Printf\MDK-ARM\RTE-I d:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I d:\Keil_v5\ARM\CMSIS\Include-DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\system_stm32f4xx.o --omf_browse stm32f4xx-nucleo\system_stm32f4xx.crf --depend stm32f4xx-nucleo\system_stm32f4xx.d)
-I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
-I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4.h)(0x53ABF4A2)
-I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54199D7A)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4_simd.h)(0x53ABF4A2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4_simd.h)(0x532BF7C2)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
 I (..\Inc\stm32f4xx_hal_conf.h)(0x54CE3BEC)
@@ -55,18 +26,18 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h)(0x53A
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
-F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal.c)(0x53ABF4BA)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\Drivers\CMSIS\Include -I..\..\..\..\..\..\User\Inc --C99-I E:\GitHub_watch\SmartWatch\Projects\STM32F411RE-Nucleo\Examples\UART\UART_Printf\MDK-ARM\RTE-I d:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I d:\Keil_v5\ARM\CMSIS\Include-DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal.crf --depend stm32f4xx-nucleo\stm32f4xx_hal.d)
+F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal.c)(0x53ABF4BA)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\User\Inc --C99-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include-DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal.crf --depend stm32f4xx-nucleo\stm32f4xx_hal.d)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
 I (..\Inc\stm32f4xx_hal_conf.h)(0x54CE3BEC)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4.h)(0x53ABF4A2)
-I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54199D7A)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4_simd.h)(0x53ABF4A2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4_simd.h)(0x532BF7C2)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x53ABF4C0)
@@ -81,18 +52,18 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h)(0x53A
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
-F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_cortex.c)(0x53ABF4BA)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\Drivers\CMSIS\Include -I..\..\..\..\..\..\User\Inc --C99-I E:\GitHub_watch\SmartWatch\Projects\STM32F411RE-Nucleo\Examples\UART\UART_Printf\MDK-ARM\RTE-I d:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I d:\Keil_v5\ARM\CMSIS\Include-DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_cortex.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_cortex.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_cortex.d)
+F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_adc.c)(0x53ABF4BB)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\User\Inc --C99-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include-DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_adc.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_adc.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_adc.d)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
 I (..\Inc\stm32f4xx_hal_conf.h)(0x54CE3BEC)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4.h)(0x53ABF4A2)
-I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54199D7A)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4_simd.h)(0x53ABF4A2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4_simd.h)(0x532BF7C2)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x53ABF4C0)
@@ -107,18 +78,18 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h)(0x53A
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
-F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_flash.c)(0x53ABF4BB)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\Drivers\CMSIS\Include -I..\..\..\..\..\..\User\Inc --C99-I E:\GitHub_watch\SmartWatch\Projects\STM32F411RE-Nucleo\Examples\UART\UART_Printf\MDK-ARM\RTE-I d:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I d:\Keil_v5\ARM\CMSIS\Include-DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_flash.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_flash.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_flash.d)
+F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_adc_ex.c)(0x53ABF4BA)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\User\Inc --C99-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include-DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_adc_ex.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_adc_ex.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_adc_ex.d)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
 I (..\Inc\stm32f4xx_hal_conf.h)(0x54CE3BEC)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4.h)(0x53ABF4A2)
-I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54199D7A)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4_simd.h)(0x53ABF4A2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4_simd.h)(0x532BF7C2)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x53ABF4C0)
@@ -133,18 +104,18 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h)(0x53A
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
-F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_flash_ex.c)(0x53ABF4BA)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\Drivers\CMSIS\Include -I..\..\..\..\..\..\User\Inc --C99-I E:\GitHub_watch\SmartWatch\Projects\STM32F411RE-Nucleo\Examples\UART\UART_Printf\MDK-ARM\RTE-I d:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I d:\Keil_v5\ARM\CMSIS\Include-DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_flash_ex.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_flash_ex.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_flash_ex.d)
+F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_cortex.c)(0x53ABF4BA)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\User\Inc --C99-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include-DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_cortex.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_cortex.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_cortex.d)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
 I (..\Inc\stm32f4xx_hal_conf.h)(0x54CE3BEC)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4.h)(0x53ABF4A2)
-I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54199D7A)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4_simd.h)(0x53ABF4A2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4_simd.h)(0x532BF7C2)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x53ABF4C0)
@@ -159,18 +130,18 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h)(0x53A
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
-F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_gpio.c)(0x54BBB48A)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\Drivers\CMSIS\Include -I..\..\..\..\..\..\User\Inc --C99-I E:\GitHub_watch\SmartWatch\Projects\STM32F411RE-Nucleo\Examples\UART\UART_Printf\MDK-ARM\RTE-I d:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I d:\Keil_v5\ARM\CMSIS\Include-DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_gpio.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_gpio.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_gpio.d)
+F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_dma.c)(0x53ABF4BA)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\User\Inc --C99-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include-DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_dma.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_dma.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_dma.d)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
 I (..\Inc\stm32f4xx_hal_conf.h)(0x54CE3BEC)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4.h)(0x53ABF4A2)
-I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54199D7A)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4_simd.h)(0x53ABF4A2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4_simd.h)(0x532BF7C2)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x53ABF4C0)
@@ -185,18 +156,18 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h)(0x53A
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
-F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_rcc.c)(0x53ABF4BA)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\Drivers\CMSIS\Include -I..\..\..\..\..\..\User\Inc --C99-I E:\GitHub_watch\SmartWatch\Projects\STM32F411RE-Nucleo\Examples\UART\UART_Printf\MDK-ARM\RTE-I d:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I d:\Keil_v5\ARM\CMSIS\Include-DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_rcc.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_rcc.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_rcc.d)
+F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_dma_ex.c)(0x53ABF4BB)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\User\Inc --C99-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include-DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_dma_ex.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_dma_ex.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_dma_ex.d)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
 I (..\Inc\stm32f4xx_hal_conf.h)(0x54CE3BEC)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4.h)(0x53ABF4A2)
-I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54199D7A)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4_simd.h)(0x53ABF4A2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4_simd.h)(0x532BF7C2)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x53ABF4C0)
@@ -211,18 +182,18 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h)(0x53A
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
-F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_rcc_ex.c)(0x53ABF4BB)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\Drivers\CMSIS\Include -I..\..\..\..\..\..\User\Inc --C99-I E:\GitHub_watch\SmartWatch\Projects\STM32F411RE-Nucleo\Examples\UART\UART_Printf\MDK-ARM\RTE-I d:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I d:\Keil_v5\ARM\CMSIS\Include-DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_rcc_ex.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_rcc_ex.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_rcc_ex.d)
+F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_flash.c)(0x53ABF4BB)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\User\Inc --C99-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include-DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_flash.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_flash.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_flash.d)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
 I (..\Inc\stm32f4xx_hal_conf.h)(0x54CE3BEC)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4.h)(0x53ABF4A2)
-I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54199D7A)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4_simd.h)(0x53ABF4A2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4_simd.h)(0x532BF7C2)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x53ABF4C0)
@@ -237,18 +208,18 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h)(0x53A
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
-F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_spi.c)(0x54BE68CE)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\Drivers\CMSIS\Include -I..\..\..\..\..\..\User\Inc --C99-I E:\GitHub_watch\SmartWatch\Projects\STM32F411RE-Nucleo\Examples\UART\UART_Printf\MDK-ARM\RTE-I d:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I d:\Keil_v5\ARM\CMSIS\Include-DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_spi.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_spi.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_spi.d)
+F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_flash_ex.c)(0x53ABF4BA)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\User\Inc --C99-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include-DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_flash_ex.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_flash_ex.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_flash_ex.d)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
 I (..\Inc\stm32f4xx_hal_conf.h)(0x54CE3BEC)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4.h)(0x53ABF4A2)
-I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54199D7A)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4_simd.h)(0x53ABF4A2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4_simd.h)(0x532BF7C2)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x53ABF4C0)
@@ -263,19 +234,18 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h)(0x53A
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
-I (d:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54199D7C)
-F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_uart.c)(0x53ABF4BA)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\Drivers\CMSIS\Include -I..\..\..\..\..\..\User\Inc --C99-I E:\GitHub_watch\SmartWatch\Projects\STM32F411RE-Nucleo\Examples\UART\UART_Printf\MDK-ARM\RTE-I d:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I d:\Keil_v5\ARM\CMSIS\Include-DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_uart.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_uart.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_uart.d)
+F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_gpio.c)(0x54BBB48A)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\User\Inc --C99-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include-DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_gpio.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_gpio.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_gpio.d)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
 I (..\Inc\stm32f4xx_hal_conf.h)(0x54CE3BEC)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4.h)(0x53ABF4A2)
-I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54199D7A)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4_simd.h)(0x53ABF4A2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4_simd.h)(0x532BF7C2)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x53ABF4C0)
@@ -290,18 +260,18 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h)(0x53A
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
-F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_dma.c)(0x53ABF4BA)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\Drivers\CMSIS\Include -I..\..\..\..\..\..\User\Inc --C99-I E:\GitHub_watch\SmartWatch\Projects\STM32F411RE-Nucleo\Examples\UART\UART_Printf\MDK-ARM\RTE-I d:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I d:\Keil_v5\ARM\CMSIS\Include-DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_dma.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_dma.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_dma.d)
+F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_rcc.c)(0x53ABF4BA)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\User\Inc --C99-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include-DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_rcc.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_rcc.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_rcc.d)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
 I (..\Inc\stm32f4xx_hal_conf.h)(0x54CE3BEC)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4.h)(0x53ABF4A2)
-I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54199D7A)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4_simd.h)(0x53ABF4A2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4_simd.h)(0x532BF7C2)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x53ABF4C0)
@@ -316,18 +286,18 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h)(0x53A
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
-F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_dma_ex.c)(0x53ABF4BB)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\Drivers\CMSIS\Include -I..\..\..\..\..\..\User\Inc --C99-I E:\GitHub_watch\SmartWatch\Projects\STM32F411RE-Nucleo\Examples\UART\UART_Printf\MDK-ARM\RTE-I d:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I d:\Keil_v5\ARM\CMSIS\Include-DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_dma_ex.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_dma_ex.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_dma_ex.d)
+F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_rcc_ex.c)(0x53ABF4BB)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\User\Inc --C99-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include-DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_rcc_ex.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_rcc_ex.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_rcc_ex.d)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
 I (..\Inc\stm32f4xx_hal_conf.h)(0x54CE3BEC)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4.h)(0x53ABF4A2)
-I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54199D7A)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4_simd.h)(0x53ABF4A2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4_simd.h)(0x532BF7C2)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x53ABF4C0)
@@ -342,8 +312,61 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h)(0x53A
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
-F (startup_stm32f411xe.s)(0x53AC266E)(--cpu Cortex-M4.fp -g --apcs=interwork --pd "__MICROLIB SETA 1"-I E:\GitHub_watch\SmartWatch\Projects\STM32F411RE-Nucleo\Examples\UART\UART_Printf\MDK-ARM\RTE-I d:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I d:\Keil_v5\ARM\CMSIS\Include--pd "STM32F411xE SETA 1"--list startup_stm32f411xe.lst --xref -o stm32f4xx-nucleo\startup_stm32f411xe.o --depend stm32f4xx-nucleo\startup_stm32f411xe.d)
-F (..\Src\main.c)(0x54D362DB)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\Drivers\CMSIS\Include -I..\..\..\..\..\..\User\Inc --C99-I E:\GitHub_watch\SmartWatch\Projects\STM32F411RE-Nucleo\Examples\UART\UART_Printf\MDK-ARM\RTE-I d:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I d:\Keil_v5\ARM\CMSIS\Include-DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\main.o --omf_browse stm32f4xx-nucleo\main.crf --depend stm32f4xx-nucleo\main.d)
+F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_spi.c)(0x54BE68CE)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\User\Inc --C99-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include-DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_spi.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_spi.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_spi.d)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
+I (..\Inc\stm32f4xx_hal_conf.h)(0x54CE3BEC)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
+I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4_simd.h)(0x532BF7C2)
+I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x53ABF4C0)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio_ex.h)(0x53ABF4BF)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma_ex.h)(0x53ABF4C0)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_cortex.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash.h)(0x53ABF4BF)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ramfunc.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdio.h)(0x51C7C554)
+F (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_uart.c)(0x53ABF4BA)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\User\Inc --C99-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include-DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_uart.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_uart.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_uart.d)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
+I (..\Inc\stm32f4xx_hal_conf.h)(0x54CE3BEC)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
+I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4_simd.h)(0x532BF7C2)
+I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x53ABF4C0)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio_ex.h)(0x53ABF4BF)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma_ex.h)(0x53ABF4C0)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_cortex.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash.h)(0x53ABF4BF)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ramfunc.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
+F (startup_stm32f411xe.s)(0x53AC266E)(--cpu Cortex-M4.fp -g --apcs=interwork --pd "__MICROLIB SETA 1"-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include--list startup_stm32f411xe.lst --xref -o stm32f4xx-nucleo\startup_stm32f411xe.o --depend stm32f4xx-nucleo\startup_stm32f411xe.d)
+F (..\Src\main.c)(0x54D36924)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\User\Inc --C99-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include-DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\main.o --omf_browse stm32f4xx-nucleo\main.crf --depend stm32f4xx-nucleo\main.d)
 I (..\Inc\main.h)(0x54C4D9C5)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
 I (..\Inc\stm32f4xx_hal_conf.h)(0x54CE3BEC)
@@ -351,11 +374,11 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x53A
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4.h)(0x53ABF4A2)
-I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54199D7A)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4_simd.h)(0x53ABF4A2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4_simd.h)(0x532BF7C2)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x53ABF4C0)
@@ -372,8 +395,8 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53A
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\User\Inc\afe4403_bsp.h)(0x54CE387D)
 I (..\..\..\..\..\..\User\Inc\afe4403_register.h)(0x54CE37ED)
-I (d:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54199D7C)
-F (..\Src\stm32f4xx_hal_msp.c)(0x54CE387D)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\Drivers\CMSIS\Include -I..\..\..\..\..\..\User\Inc --C99-I E:\GitHub_watch\SmartWatch\Projects\STM32F411RE-Nucleo\Examples\UART\UART_Printf\MDK-ARM\RTE-I d:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I d:\Keil_v5\ARM\CMSIS\Include-DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_msp.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_msp.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_msp.d)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdio.h)(0x51C7C554)
+F (..\Src\stm32f4xx_hal_msp.c)(0x54CE387D)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\User\Inc --C99-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include-DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_hal_msp.o --omf_browse stm32f4xx-nucleo\stm32f4xx_hal_msp.crf --depend stm32f4xx-nucleo\stm32f4xx_hal_msp.d)
 I (..\..\..\..\..\..\User\Inc\afe4403_bsp.h)(0x54CE387D)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
 I (..\Inc\stm32f4xx_hal_conf.h)(0x54CE3BEC)
@@ -381,11 +404,11 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x53A
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4.h)(0x53ABF4A2)
-I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54199D7A)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4_simd.h)(0x53ABF4A2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4_simd.h)(0x532BF7C2)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x53ABF4C0)
@@ -401,8 +424,8 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\User\Inc\afe4403_register.h)(0x54CE37ED)
-I (d:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54199D7C)
-F (..\Src\stm32f4xx_it.c)(0x54CE387D)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\Drivers\CMSIS\Include -I..\..\..\..\..\..\User\Inc --C99-I E:\GitHub_watch\SmartWatch\Projects\STM32F411RE-Nucleo\Examples\UART\UART_Printf\MDK-ARM\RTE-I d:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I d:\Keil_v5\ARM\CMSIS\Include-DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_it.o --omf_browse stm32f4xx-nucleo\stm32f4xx_it.crf --depend stm32f4xx-nucleo\stm32f4xx_it.d)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdio.h)(0x51C7C554)
+F (..\Src\stm32f4xx_it.c)(0x54CE387D)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\User\Inc --C99-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include-DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\stm32f4xx_it.o --omf_browse stm32f4xx-nucleo\stm32f4xx_it.crf --depend stm32f4xx-nucleo\stm32f4xx_it.d)
 I (..\Inc\main.h)(0x54C4D9C5)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
 I (..\Inc\stm32f4xx_hal_conf.h)(0x54CE3BEC)
@@ -410,11 +433,11 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x53A
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4.h)(0x53ABF4A2)
-I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54199D7A)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4_simd.h)(0x53ABF4A2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4_simd.h)(0x532BF7C2)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x53ABF4C0)
@@ -431,9 +454,38 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53A
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\User\Inc\afe4403_bsp.h)(0x54CE387D)
 I (..\..\..\..\..\..\User\Inc\afe4403_register.h)(0x54CE37ED)
-I (d:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54199D7C)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdio.h)(0x51C7C554)
 I (..\Inc\stm32f4xx_it.h)(0x53AC266E)
-F (..\..\..\..\..\..\User\Src\HAL_callback.c)(0x54BFA590)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\Drivers\CMSIS\Include -I..\..\..\..\..\..\User\Inc --C99-I E:\GitHub_watch\SmartWatch\Projects\STM32F411RE-Nucleo\Examples\UART\UART_Printf\MDK-ARM\RTE-I d:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I d:\Keil_v5\ARM\CMSIS\Include-DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\hal_callback.o --omf_browse stm32f4xx-nucleo\hal_callback.crf --depend stm32f4xx-nucleo\hal_callback.d)
+F (..\..\..\..\..\..\User\Src\afe4403_bsp.c)(0x54D36203)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\User\Inc --C99-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include-DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\afe4403_bsp.o --omf_browse stm32f4xx-nucleo\afe4403_bsp.crf --depend stm32f4xx-nucleo\afe4403_bsp.d)
+I (..\..\..\..\..\..\User\Inc\afe4403_bsp.h)(0x54CE387D)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
+I (..\Inc\stm32f4xx_hal_conf.h)(0x54CE3BEC)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
+I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4_simd.h)(0x532BF7C2)
+I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x53ABF4C0)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio_ex.h)(0x53ABF4BF)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma_ex.h)(0x53ABF4C0)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_cortex.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash.h)(0x53ABF4BF)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ramfunc.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
+I (..\..\..\..\..\..\User\Inc\afe4403_register.h)(0x54CE37ED)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdio.h)(0x51C7C554)
+F (..\..\..\..\..\..\User\Src\HAL_callback.c)(0x54BFA590)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\User\Inc --C99-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include-DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\hal_callback.o --omf_browse stm32f4xx-nucleo\hal_callback.crf --depend stm32f4xx-nucleo\hal_callback.d)
 I (..\..\..\..\..\..\User\Inc\HAL_callback.h)(0x54BD1214)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
 I (..\Inc\stm32f4xx_hal_conf.h)(0x54CE3BEC)
@@ -441,11 +493,11 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x53A
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4.h)(0x53ABF4A2)
-I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54199D7A)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4_simd.h)(0x53ABF4A2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4_simd.h)(0x532BF7C2)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x53ABF4C0)
@@ -460,10 +512,10 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h)(0x53A
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
-I (d:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54199D7C)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdio.h)(0x51C7C554)
 I (..\..\..\..\..\..\User\Inc\afe4403_bsp.h)(0x54CE387D)
 I (..\..\..\..\..\..\User\Inc\afe4403_register.h)(0x54CE37ED)
-F (..\..\..\..\..\..\User\Src\PulseOX_HRM.c)(0x54D36320)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\Drivers\CMSIS\Include -I..\..\..\..\..\..\User\Inc --C99-I E:\GitHub_watch\SmartWatch\Projects\STM32F411RE-Nucleo\Examples\UART\UART_Printf\MDK-ARM\RTE-I d:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I d:\Keil_v5\ARM\CMSIS\Include-DSTM32F411xE -DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\pulseox_hrm.o --omf_browse stm32f4xx-nucleo\pulseox_hrm.crf --depend stm32f4xx-nucleo\pulseox_hrm.d)
+F (..\..\..\..\..\..\User\Src\PulseOX_HRM.c)(0x54D376E0)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include -I..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc -I..\..\..\..\..\..\Drivers\BSP\STM32F4xx-Nucleo -I..\..\..\..\..\..\User\Inc --C99-I "D:\Program Files\Keil4.7\ARM\RV31\INC"-I "D:\Program Files\Keil4.7\ARM\CMSIS\Include"-I Device\Include-DUSE_HAL_DRIVER -DSTM32F411xE-o stm32f4xx-nucleo\pulseox_hrm.o --omf_browse stm32f4xx-nucleo\pulseox_hrm.crf --depend stm32f4xx-nucleo\pulseox_hrm.d)
 I (..\..\..\..\..\..\User\Inc\PulseOx_HRM.h)(0x54CE3B8B)
 I (..\..\..\..\..\..\User\Inc\afe4403_bsp.h)(0x54CE387D)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x53ABF4BE)
@@ -472,11 +524,11 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x53A
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x53ABF4B8)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4.h)(0x53ABF4A2)
-I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54199D7A)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x53ABF4A2)
-I (..\..\..\..\..\..\Drivers\CMSIS\Include\core_cm4_simd.h)(0x53ABF4A2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
+I (D:\Program Files\Keil4.7\ARM\CMSIS\Include\core_cm4_simd.h)(0x532BF7C2)
 I (..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x53ABF4B8)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x53ABF4C0)
@@ -492,4 +544,4 @@ I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x53ABF4BE)
 I (..\..\..\..\..\..\User\Inc\afe4403_register.h)(0x54CE37ED)
-I (d:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54199D7C)
+I (D:\Program Files\Keil4.7\ARM\ARMCC\include\stdio.h)(0x51C7C554)

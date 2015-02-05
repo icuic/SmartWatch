@@ -355,6 +355,8 @@ void AFE4403_SPIx_Write(uint8_t addr, uint32_t value)
   //printf("\r\nWrite register 0x%02x ( %02d ) with value 0x%06x (%6d) ", addr, addr, value, value);
 #endif
 
+  HAL_StatusTypeDef status = HAL_OK;	
+	
   uint32_t tmp = value >> 16;
   uint32_t txData = addr;
   txData += tmp << 8;
@@ -364,8 +366,6 @@ void AFE4403_SPIx_Write(uint8_t addr, uint32_t value)
 
   tmp = (value & 0x0000FF);
   txData += tmp << 24;
-
-  HAL_StatusTypeDef status = HAL_OK;
 
 
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);

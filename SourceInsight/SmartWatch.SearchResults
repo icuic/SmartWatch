@@ -1,8 +1,1 @@
----- _SPI_DMA_ Matches (7 in 4 files) ----
-Afe4403_bsp.c (e:\github_watch\smartwatch\user\src):#ifdef _SPI_DMA_
-Afe4403_bsp.c (e:\github_watch\smartwatch\user\src):#ifdef _SPI_DMA_
-Afe4403_bsp.c (e:\github_watch\smartwatch\user\src):#ifdef _SPI_DMA_
-Afe4403_bsp.h (e:\github_watch\smartwatch\user\inc):#ifdef _SPI_DMA_
-Stm32f4xx_hal_msp.c (e:\github_watch\smartwatch\projects\stm32f411re-nucleo\examples\uart\uart_printf\src):#ifdef _SPI_DMA_
-Stm32f4xx_hal_msp.c (e:\github_watch\smartwatch\projects\stm32f411re-nucleo\examples\uart\uart_printf\src):#ifdef _SPI_DMA_
-Stm32f4xx_it.c (e:\github_watch\smartwatch\projects\stm32f411re-nucleo\examples\uart\uart_printf\src):#ifdef _SPI_DMA_
+---- USE_STM32F4XX_NUCLEO Matches (0 in 0 files) ----

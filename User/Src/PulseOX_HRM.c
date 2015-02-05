@@ -60,6 +60,18 @@ long filter(long sample)
   int k;
   int j;
 
+  long s_int[4] = {0,0,0,0};
+
+  static long dly [STAGES][2] = {{0,0}, {0,0}, {0,0}};
+  long result, wn;
+  long mysample = sample;
+  long wa1, wa2, wa3;
+  long wb1, wb2, wb3;
+
+  int i;
+	
+	
+	
   for(k=0; k<3; k++)
   {
     for(j=0; j<3;j++)
@@ -69,21 +81,12 @@ long filter(long sample)
     }
   }
 
-  long s_int[4] = {0,0,0,0};
-
   for(j=0;j<4;j++)
   {
     s_int[j] = (long) (s[j] * SCALE);
   }
 
   
-    static long dly [STAGES][2] = {{0,0}, {0,0}, {0,0}};
-    long result, wn;
-    long mysample = sample;
-    long wa1, wa2, wa3;
-    long wb1, wb2, wb3;
-
-    int i;
     for (i = 0; i < STAGES; i++)
     {
             //2nd-order LCCDE code
@@ -127,7 +130,8 @@ long filter(long sample)
 unsigned int calcHeartRate(int start, int end)
 {
   int pulseLength = 0;
-  
+  int heartRate;
+		
   if(start > end) end += 3000; //In case end index of pulse wrapped around 6 -second window
   pulseLength = end - start; //Calculate length of pulse based on start and end indices
 
@@ -139,7 +143,7 @@ unsigned int calcHeartRate(int start, int end)
     
     tempHeartRate *= 100; //Multiply by 100 to maintain 2 decimal points when casting to integer
     
-    int heartRate = (int)tempHeartRate; //Cast down to integer to send over BLE
+    heartRate = (int)tempHeartRate; //Cast down to integer to send over BLE
     
     return heartRate;
   }
@@ -170,12 +174,15 @@ unsigned int calcPulseOx(long maxIR, long minIR, long maxRed, long minRed)
   double redAC = maxRed - minRed;
   
   double ratio = (redAC/redDC)/(irAC/irDC);
-  
+  double tempSpO2;
+	
+	int pulseOx;
+	
   spO2 = 110 - 25*ratio;
   
-  double tempSpO2 = 100*spO2; //Multiply by 100 to maintain 2 decimal points when casting down to integer
+  tempSpO2 = 100*spO2; //Multiply by 100 to maintain 2 decimal points when casting down to integer
   
-  int pulseOx = (int)tempSpO2; //Cast to int to transfer over BLE
+  pulseOx = (int)tempSpO2; //Cast to int to transfer over BLE
   
   return pulseOx;
   
@@ -363,15 +370,20 @@ void processData(void)
        
        if(voltageCodeCounter >= 1500 && voltageCodeCounter%500 == 0) //Send heart rate and SpO2 values every 1 seconds
        {
-          //Send values only if they are within reasonable range
-          if((heartReport/100) > 40 && (heartReport/100) < 150)
+          if(((pulseOx/100) >= 90) && ((pulseOx/100) < 100))  // Add by liwei
           {
-            printf("\r\nHeartRate: %d", heartReport);
-          }
           
-          if(((pulseOx/100) <= 100))
-          {
-            printf("\r\nPulseOx: %d", pulseOx);
+            //Send values only if they are within reasonable range
+            if((heartReport/100) > 40 && (heartReport/100) < 150)
+            {
+              printf("\r\n\r\nHR: %d", heartReport/100);
+            }
+            
+            if(((pulseOx/100) <= 100))
+            {
+              printf("\r\nSpO2: %.2f%%", ((float)(pulseOx))/100);
+            }
+
           }
                
           if(voltageCodeCounter >= 4000)
